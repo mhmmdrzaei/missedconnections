@@ -1,0 +1,38 @@
+footer {
+	background: #2E3E25;
+	color: #F5ECD6;
+	a {
+		color: #F5ECD6;
+	}
+	font-size: 16px;
+}
+.footerContainer {
+	max-width: 1440px;
+	margin: 0 auto;
+	@extend .flex;
+	h4 {
+	margin-top: 0;
+	margin-bottom: 5px;
+	}
+	justify-content:space-between;
+	padding: 50px 6%;
+	.savacAddress {
+		width: 10%;
+	}
+	.colophon {
+		width: 12%;
+	}
+	.landAck {
+		width:45%;
+	}
+	.btn-info {
+		background: transparent;
+		margin-top: 3px;
+		border: none;
+		color: #F5ECD6;
+		text-decoration: underline;
+		&:hover {
+			color: #AB4830;
+		}
+	}
+}
