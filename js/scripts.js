@@ -123,19 +123,19 @@ sections.forEach((section, i) => {
 
 function setSection(newSection) {
   if (newSection !== currentSection) {
-    gsap.to(currentSection, {scale: 0.8, autoAlpha: 0})
+    gsap.to(currentSection, {scale: 1, autoAlpha: 0})
     gsap.to(newSection, {scale: 1, autoAlpha: 1});
     currentSection = newSection;
   }
 }
 
-// handles the infinite part, wrapping around at either end....
-ScrollTrigger.create({
-  start: 1,
-  end: () => ScrollTrigger.maxScroll('.pageCitations') - 1,
-  onLeaveBack: self => self.scroll(ScrollTrigger.maxScroll('.pageCitations') - 2),
-  onLeave: self => self.scroll(2)
-}).scroll(2);
+// // handles the infinite part, wrapping around at either end....
+// ScrollTrigger.create({
+//   start: 1,
+//   end: () => ScrollTrigger.maxScroll('.pageCitations') - 1,
+//   onLeaveBack: self => self.scroll(ScrollTrigger.maxScroll('.pageCitations') - 2),
+//   onLeave: self => self.scroll(2)
+// }).scroll(2);
 
 
 });

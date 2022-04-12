@@ -291,6 +291,48 @@ if( function_exists('acf_add_options_page') ) {
 	
 }
 
+// *	Adjust admin bar when browsing front end
+// * ============================================== */
+
+
+if(is_user_logged_in()) {
+
+	add_action('wp_head', 'offset_header', 99);
+
+	function offset_header() { ?>
+
+		<style type="text/css">
+
+			header {
+				top:32px !important;
+			}
+
+			html {
+				margin-top: 0 !important;
+			}
+
+			* html body {
+				margin-top: 0 !important;
+			}
+
+			@media screen and ( max-width: 782px ) {
+				header {
+					top:46px !important;
+				}
+				html {
+					margin-top: 0 !important;
+				}
+				* html body {
+					margin-top: 0 !important;
+				}
+			}
+
+		</style>
+
+	<?php }
+
+}
+
 /* is_blog() - checks various conditionals to figure out if you are currently within a blog page */
 function is_blog () {
 	global  $post;
