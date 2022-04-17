@@ -82,6 +82,7 @@ header {
 	width: 100%;
 	color: #F5ECD6;
 	top: 0;
+	z-index: 1;
 }
 main {
 	max-width: 1300px;
@@ -124,7 +125,15 @@ article.citationsPost:not(.citationsPost:nth-child(1)) {
 	}
 }
 
-
+//homepage
+.homepageText {
+	@include fontSize(20);
+	position: relative;
+	top: 25vh;
+	text-align: center;
+	height: 100vh;
+	width: 100%;
+}
 
 
 

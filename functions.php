@@ -308,7 +308,7 @@ if(is_user_logged_in()) {
 			}
 
 			html {
-				margin-top: 0 !important;
+				margin-top: 32px !important;
 			}
 
 			* html body {
