@@ -324,7 +324,7 @@ if(is_user_logged_in()) {
 				margin-top: 0 !important;
 			}
 
-			@media screen and ( max-width: 782px ) {
+/*			@media screen and ( max-width: 782px ) {
 				header {
 					top:46px !important;
 				}
@@ -334,7 +334,7 @@ if(is_user_logged_in()) {
 				* html body {
 					margin-top: 0 !important;
 				}
-			}
+			}*/
 
 		</style>
 
