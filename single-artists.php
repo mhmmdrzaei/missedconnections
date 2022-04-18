@@ -217,10 +217,11 @@
 
     <?php if( have_rows('multi_language_fields') ): ?>
         <?php while( have_rows('multi_language_fields') ): the_row(); ?>
-<section class="languageChoiceContainer">
+      <section class="languageChoiceContainer">
        <section class="languageChoiceEach">
          <?php the_sub_field('language_label'); ?>
-       </section> 
+       </section>
+     </section>
       <section class="languageChoiceContent">
         <section class="openingTitle">
           <figure>
@@ -431,8 +432,6 @@
           <?php endif; ?>
          </section>
        
-       
-
      </section>   
         <?php endwhile; ?>
     <?php endif; ?> 

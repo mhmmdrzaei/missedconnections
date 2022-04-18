@@ -28,6 +28,6 @@
         'theme_location' => 'primary'
       )); ?>
   </main>
-  <!-- <?php require 'backgrounds/bg.php'; ?> -->
+
 </header><!--/.header-->
 
