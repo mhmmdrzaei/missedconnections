@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> <?php body_class(); ?>>
 <head>
 	<?php // Load Meta ?>
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -30,4 +30,5 @@
   </main>
 
 </header><!--/.header-->
+<?php require 'backgrounds/bg.php'; ?> 
 

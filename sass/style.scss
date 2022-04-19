@@ -55,15 +55,27 @@ img {
 	max-width: 100%;
 	height: auto;
 }
-html, body {
+html.page-id-46 , body.page-id-46 {
   height: 100%;
 }
 body {
 	background: #EEE9D9;
 	font-family: 'Elliot Sans', sans-serif;
+	font-size:24px;
 }
 h1,h2,h3,h4,h5,h6,b {
 font-family: 'Elliot Sans Bold', sans-serif;
+margin: 0;
+}
+h1 {
+	font-size: 56px;
+	margin-bottom: 20px;
+}
+h2 {
+	 font-size: 32px;
+}
+h3 {
+	font-size: 24px;
 }
 a {
 	color: black;
@@ -85,9 +97,55 @@ header {
 	z-index: 1;
 }
 main {
-	max-width: 1300px;
+	max-width: 1100px;
 	padding: 0 20px;
 	margin: 0 auto;
+
+}
+.videoContainer {
+
+}
+.videoContainer { 
+    position: relative; 
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+} 
+
+.videoContainer iframe,
+.videoContainer object,
+.videoContainer embed { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+//svgs
+.svg1,.svg2,.svg3,.svg4 {
+	position: fixed;
+	z-index: -1;
+
+}
+.svg1 {
+	left: 0;
+	top: 5vh;
+}
+.svg2 {
+	left: 0;
+	top: 10vh;
+}
+.svg3{
+	right: 0;
+	top: 15vh;
+}
+
+
+.svg4 {
+	right:0;
+	top: 20vh;
 }
 
 //citations
@@ -128,10 +186,9 @@ article.citationsPost:not(.citationsPost:nth-child(1)) {
 //homepage
 .homepageText {
 	@include fontSize(20);
-	position: relative;
-	top: 25vh;
+	margin-top: 35vh;
 	text-align: center;
-	height: 100vh;
+	height: 80vh;
 	width: 100%;
 }
 @keyframes shakeShake {
@@ -140,7 +197,7 @@ article.citationsPost:not(.citationsPost:nth-child(1)) {
  }
 .arrowDown {
 		animation: shakeShake .5s infinite;
-		margin-top: 60px;
+		margin-top: 12vh;
 
 }
 .arrowDown::after{
@@ -148,7 +205,48 @@ article.citationsPost:not(.citationsPost:nth-child(1)) {
 
 
 }
-
+.postEach {
+	@extend .flex;
+	margin-bottom: 50px;
+	justify-content:space-between;
+	a {
+		text-decoration: none;
+		color: black;
+	}
+	figure {
+		width: 40%;
+	}
+	.postInfoText {
+		h2 {
+			margin: 0;
+		}
+		h3 {
+			margin: 0;
+		}
+		width: 58%;
+	}
+}
+.artistEach {
+	@extend .flex;
+	justify-content:space-between;
+	margin: 100px 0; 
+	figure {
+		width: 40%;
+		text-align: right;
+	}
+	.openingDesc {
+		width: 40%;
+		h1 {
+			margin-bottom: 30px;
+		}
+		.openingDesciption {
+			display: none;
+		}
+		.openingDesciption:nth-child(2) {
+    display: block;   
+		}
+	}
+}
 
 //events and announcements
 
@@ -164,8 +262,241 @@ article.citationsPost:not(.citationsPost:nth-child(1)) {
    max-width: inherit !important;
 }
 
+//artist page 
+.artistsmain {
+	margin-top: 30vh;
+}
+
+.languageChoiceEach {
+	position: fixed;
+	bottom: 50px;
+	right: 40px;
+	cursor: pointer;
+}
+
+.languageChoiceEach:nth-child(1) {
+		right: 100px;
+		border-right: 1px solid black;
+		padding: 0 10px 
+	}
+
+.languageChoiceContent:nth-child(4){
+	display: none;
+}
+.openingTitle {
+	@extend .artistEach;
+	padding: 0 20px;
+	figure {
+		text-align: center;
+	}
+
+}
+.single_large_image_desc {
+	@extend .flex;
+	margin: 20vh 0;
+	justify-content:space-between;
+	align-items: center;
+	figure {
+		width: 55%;
+	}
+	.single_large_desc {
+		width: 42%;
+	}
+}
+.multi_large_image_desc {
+	@extend .flex;
+	margin: 20vh 0;
+	justify-content:space-between;
+	.multi_large_desc {
+		width: 55%;
+	}
+	.singleLargeTextGallery {
+		width: 42%;
+		p {
+			margin: 0;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.pdfReaderContainer {
+	@extend .flex;
+	margin: 20vh 0;
+	justify-content:space-around;
+	align-items: center;
+	.pdfReaderInformation {
+		width: 42%;
+	}
+	.pdfHolder {
+		border: 1px solid black;
+		height: auto;
+	}
+}
+.videoRepContainer {
+		margin: 20vh 0;
+		.videoContainerEach {
+			@extend .flex;
+			margin-bottom: 30px;
+			justify-content:space-between;
+			align-items: center;
+			.videoInformation {
+				width: 40%;
+			}
+			.videoOuter {
+				width: 55%;
+			}
 
 
+		}
+
+}
+
+.embeddedContainer {
+	@extend .flex;
+	margin: 20vh 0;
+	justify-content:space-between;
+	align-items: center;
+	.videoOuter {
+		width: 50%;
+	} .embeddedInformation {
+		width: 40%;
+	}
+}
+
+.readingsContainer {
+	@extend .flex;
+	margin: 20vh 0;
+	justify-content:space-between;
+	align-items: center;
+	h2 {
+		width: 25%;
+	}
+	.readingsEachContainer {
+		width: 75%;
+		background: #C2CBEF;
+		
+		.readingsEach {
+			@extend .flex;
+			width: 100%;
+			align-items: center;
+			height: 76px;
+			padding: 24px 30px;
+			border: 1px solid #C2CBEF;
+			&:hover {
+				background: #F5ECD6;
+				border: 1px solid black;
+			}
+			h4 {
+				width: 45%;
+				font-family: 'Elliot Sans', sans-serif;
+			}
+			.pdftitleLink {
+				width: 50%;
+				a {
+
+				}
+			}
+		}
+	}
+}
+
+.ctaButton {
+	background: #C75438;
+	// height: 96px;
+	padding: 20px;
+	border-radius: 35px;
+	text-decoration: none;
+	color: #EEE9D9;
+	float: right;
+	margin-bottom: 20vh;
+	&:hover {
+		color: white;
+	}
+
+}
+
+.contributorsContainer {
+	@extend .flex;
+	margin: 20vh 0;
+	justify-content:space-between;
+	width: 100%;
+	align-items:center;
+	h2 {
+		width: 25%;
+	}
+	.contributorEachContainer {
+		width: 75%;
+		.contributorEach {
+			@extend .flex;
+			justify-content: space-between;
+			figure {
+				width: 42%;
+			}
+			.contributorInformation {
+				width: 55%;
+			}
+		}
+	}
+}
+
+.taggedEventContainer {
+	@extend .flex;
+	margin: 20vh 0;
+	justify-content:space-between;
+	align-items:center;
+	h2 {
+		width: 25%;
+	}
+	.taggedEventEachContainer {
+		width: 75%;
+		.taggedEventEach {
+			@extend .flex;
+			justify-content: space-between;
+			width: 100%;
+			align-items: center;
+			height: 76px;
+			padding: 24px 30px;
+			border: 1px solid #C2CBEF;
+			background: #C2CBEF;
+			&:hover {
+				background: #F5ECD6;
+				border: 1px solid black;
+			}
+			.eventDate {
+				width: 45%;
+			}
+			.eventTitletitle {
+				width: 50%;
+			}
+		}
+	}
+}
+
+// get in touch
+.pageGetInTouch {
+	min-height: 45vh;
+	margin: 0 auto 50px;
+	h1 {
+		margin-top: 20vh;
+	}
+	.pageContent {
+		width: 50%;
+	}
+}
+//about
+.singlePage{
+	@extend .flex;
+	justify-content: space-between;
+	// align-items: center;
+	margin: 80px auto;
+	h1 {
+		width: 25%;
+		// position: absolute;
+	}
+	.pageContent {
+		width: 70%;
+	}
+}
 
 
 

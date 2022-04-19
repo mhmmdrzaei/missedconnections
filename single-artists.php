@@ -39,8 +39,8 @@
                 <?php while( have_rows('pdf_reader_container') ): the_row(); ?>
                   <section class="pdfReaderContainer">
                     <section class="pdfReaderInformation">
-                      <h2><?php the_sub_field('pdf_title'); ?></h2>
-                      <p><?php the_sub_field('pdf_subtitle'); ?></p>
+                      <h1><?php the_sub_field('pdf_title'); ?></h1>
+                      <h2><?php the_sub_field('pdf_subtitle'); ?></h2>
                     </section>
                     <section class="pdfHolder">
                       <object
@@ -62,11 +62,11 @@
                     </section>
                 <?php endwhile; ?>
             <?php endif; ?> 
-
+                  </section>
           <?php elseif( get_row_layout() == 'multiple_large_images_with_text' ): ?>
             <?php if( have_rows('mliwtx_single') ): ?>
                 <?php while( have_rows('mliwtx_single') ): the_row(); ?>
-                  <section class="single_large_image_desc">
+                  <section class="multi_large_image_desc">
                     <section class="singleLargeTextGallery">
                       <?php 
                       $images = get_sub_field('images_mliwtx_single');
@@ -77,7 +77,7 @@
                         <?php endforeach; ?>
                       <?php endif; ?>
                     </section>
-                    <section class="single_large_desc">
+                    <section class="multi_large_desc">
                       <?php the_sub_field('text_mliwtx_single'); ?>
                     </section>
                   </section>
@@ -85,33 +85,40 @@
             <?php endif; ?> 
 
           <?php elseif( get_row_layout() == 'videos_sections' ): ?> 
+            <section class="videoRepContainer">
             <?php if( have_rows('video_repeater_container') ): ?>
                 <?php while( have_rows('video_repeater_container') ): the_row(); ?>
-                  <section class="videoRepContainer">
+                
                     <section class="videoContainerEach">
                       <section class="videoInformation">
                         <h2><?php the_sub_field('video_title') ?></h2>
                         <p><?php the_sub_field('video_description') ?></p>
                       </section>
-                      <section class="videoContainer">
-                        <?php the_sub_field('video_link_artists') ?>
+                      <section class="videoOuter">
+                        <section class="videoContainer">
+                          <?php the_sub_field('video_link_artists') ?>
+                        </section>
+                        
                       </section>
                     </section>
-                  </section>
+                 
                 <?php endwhile; ?>
             <?php endif; ?> 
-
+             </section>
           <?php elseif( get_row_layout() == 'embedded_content' ): ?> 
             <?php if( have_rows('embedded_content_container') ): ?>
                 <?php while( have_rows('embedded_content_container') ): the_row(); ?>
                   <section class="embeddedContainer">
+                      <section class="videoOuter">
+                        <section class="videoContainer">
+                        <?php the_sub_field('embedded_content_link') ?>
+                      </section>
+                      </section>
                       <section class="embeddedInformation">
                         <h2><?php the_sub_field('embedded_content_title') ?></h2>
                         <p><?php the_sub_field('embedded_content_description') ?></p>
                       </section>
-                      <section class="videoContainer">
-                        <?php the_sub_field('embedded_content_link') ?>
-                      </section>
+                      
                   </section>
                 <?php endwhile; ?>
             <?php endif; ?> 
@@ -119,32 +126,37 @@
           <?php elseif( get_row_layout() == 'readings' ): ?> 
             <section class="readingsContainer">
               <h2>Pedagogical Readings</h2>
+              <section class="readingsEachContainer">
             <?php if( have_rows('readings_repeater_container') ): ?>
                 <?php while( have_rows('readings_repeater_container') ): the_row(); ?>
-                    <section class="readingsEachContainer">
+                    
                       <section class="readingsEach">
                         <h4><?php the_sub_field('reading_author'); ?></h4>
-                        <a href="<?php the_sub_field('reading_file') ?>" target="_blank"><?php the_sub_field('reading_title') ?></a>
-
+                        <section class="pdftitleLink">
+                          <a href="<?php the_sub_field('reading_file') ?>" target="_blank"><?php the_sub_field('reading_title') ?> <i class="fa-solid fa-file-pdf"></i></a>
+                        </section>
                       </section>
-                    </section>
+                    
                  
                 <?php endwhile; ?>
-            <?php endif; ?> 
+            <?php endif; ?>
+            </section>
              </section>
           <?php elseif( get_row_layout() == 'tagged_events' ): ?> 
+            <section class="taggedEventContainer">
+              <h2><?php the_sub_field('event_title'); ?></h2>
+              <section class="taggedEventEachContainer">
             <?php if( have_rows('tagged_event_repeater_container') ): ?>
                 <?php while( have_rows('tagged_event_repeater_container') ): the_row(); ?>
-                  <section class="taggedEventContainer">
-                    <h2>Events</h2>
-                    <section class="taggedEventEachContainer">
-                      <section class="taggedEventEach">
+                    
+                      
                         <?php $featured_posts = get_sub_field('event_post_tagged_events_copy');
                         ?>
                           <?php   if( $featured_posts ) {
                               $post = $featured_posts;
                               setup_postdata($post);
                            ?>
+                          <section class="taggedEventEach">
                            <section class="eventDate">
                              <?php 
                                  $startDate = get_field('event_date_start');
@@ -160,15 +172,14 @@
                                <?php the_title(); ?>
                              </a>
                            </section>
+
                             <?php  wp_reset_postdata(); ?> 
                           <?php  } ?>
-                      </section>
-                      
-                    </section>
-                  </section>
+                        </section>
                 <?php endwhile; ?>
             <?php endif; ?> 
-
+             </section>
+           </section>
             
 
           <?php elseif( get_row_layout() == 'cta_button' ): ?> 
@@ -217,11 +228,9 @@
 
     <?php if( have_rows('multi_language_fields') ): ?>
         <?php while( have_rows('multi_language_fields') ): the_row(); ?>
-      <section class="languageChoiceContainer">
        <section class="languageChoiceEach">
          <?php the_sub_field('language_label'); ?>
        </section>
-     </section>
       <section class="languageChoiceContent">
         <section class="openingTitle">
           <figure>
@@ -262,8 +271,8 @@
                     <?php while( have_rows('pdf_reader_container') ): the_row(); ?>
                       <section class="pdfReaderContainer">
                         <section class="pdfReaderInformation">
-                          <h2><?php the_sub_field('pdf_title'); ?></h2>
-                          <p><?php the_sub_field('pdf_subtitle'); ?></p>
+                          <h1><?php the_sub_field('pdf_title'); ?></h1>
+                          <h2><?php the_sub_field('pdf_subtitle'); ?></h2>
                         </section>
                         <section class="pdfHolder">
                           <object
@@ -285,11 +294,11 @@
                         </section>
                     <?php endwhile; ?>
                 <?php endif; ?> 
-
+                    </section>
               <?php elseif( get_row_layout() == 'multiple_large_images_with_text' ): ?>
                 <?php if( have_rows('mliwtx_single') ): ?>
                     <?php while( have_rows('mliwtx_single') ): the_row(); ?>
-                      <section class="single_large_image_desc">
+                      <section class="multi_large_image_desc">
                         <section class="singleLargeTextGallery">
                           <?php 
                           $images = get_sub_field('images_mliwtx_single');
@@ -300,7 +309,7 @@
                             <?php endforeach; ?>
                           <?php endif; ?>
                         </section>
-                        <section class="single_large_desc">
+                        <section class="multi_large_desc">
                           <?php the_sub_field('text_mliwtx_single'); ?>
                         </section>
                       </section>
@@ -308,33 +317,38 @@
                 <?php endif; ?> 
 
               <?php elseif( get_row_layout() == 'videos_sections' ): ?> 
+                <section class="videoRepContainer">
                 <?php if( have_rows('video_repeater_container') ): ?>
                     <?php while( have_rows('video_repeater_container') ): the_row(); ?>
-                      <section class="videoRepContainer">
+                      
                         <section class="videoContainerEach">
                           <section class="videoInformation">
                             <h2><?php the_sub_field('video_title') ?></h2>
                             <p><?php the_sub_field('video_description') ?></p>
                           </section>
+                          <section class="videoOuter">
                           <section class="videoContainer">
                             <?php the_sub_field('video_link_artists') ?>
                           </section>
                         </section>
-                      </section>
+                        </section>
+                      
                     <?php endwhile; ?>
                 <?php endif; ?> 
-
+                </section>
               <?php elseif( get_row_layout() == 'embedded_content' ): ?> 
                 <?php if( have_rows('embedded_content_container') ): ?>
                     <?php while( have_rows('embedded_content_container') ): the_row(); ?>
                       <section class="embeddedContainer">
-                          <section class="embeddedInformation">
-                            <h2><?php the_sub_field('embedded_content_title') ?></h2>
-                            <p><?php the_sub_field('embedded_content_description') ?></p>
-                          </section>
+                          <section class="videoOuter">
                           <section class="videoContainer">
                             <?php the_sub_field('embedded_content_link') ?>
                           </section>
+                        </section>
+                        <section class="embeddedInformation">
+                          <h2><?php the_sub_field('embedded_content_title') ?></h2>
+                          <p><?php the_sub_field('embedded_content_description') ?></p>
+                        </section>
                       </section>
                     <?php endwhile; ?>
                 <?php endif; ?> 
@@ -342,55 +356,63 @@
               <?php elseif( get_row_layout() == 'readings' ): ?> 
                 <section class="readingsContainer">
                   <h2>Pedagogical Readings</h2>
+                  <section class="readingsEachContainer">
                 <?php if( have_rows('readings_repeater_container') ): ?>
                     <?php while( have_rows('readings_repeater_container') ): the_row(); ?>
-                        <section class="readingsEachContainer">
+
                           <section class="readingsEach">
                             <h4><?php the_sub_field('reading_author'); ?></h4>
-                            <a href="<?php the_sub_field('reading_file') ?>" target="_blank"><?php the_sub_field('reading_title') ?></a>
+                            <section class="pdftitleLink">
+                               <a href="<?php the_sub_field('reading_file') ?>" target="_blank"><?php the_sub_field('reading_title') ?> <i class="fa-solid fa-file-pdf"></i></a>
+                            </section>
+                           
 
-                          </section>
-                        </section>
-                     
+                         
+                        
                     <?php endwhile; ?>
                 <?php endif; ?> 
+               </section>
+                </section>
+                     
                  </section>
               <?php elseif( get_row_layout() == 'tagged_events' ): ?> 
-                <?php if( have_rows('tagged_event_repeater_container') ): ?>
-                    <?php while( have_rows('tagged_event_repeater_container') ): the_row(); ?>
-                      <section class="taggedEventContainer">
-                        <h2>Events</h2>
-                        <section class="taggedEventEachContainer">
+                 <section class="taggedEventContainer">
+              <h2><?php the_sub_field('events_title'); ?></h2>
+              <section class="taggedEventEachContainer">
+            <?php if( have_rows('tagged_event_repeater_container') ): ?>
+                <?php while( have_rows('tagged_event_repeater_container') ): the_row(); ?>
+                    
+                      
+                        <?php $featured_posts = get_sub_field('event_post_tagged_events_copy');
+                        ?>
+                          <?php   if( $featured_posts ) {
+                              $post = $featured_posts;
+                              setup_postdata($post);
+                           ?>
                           <section class="taggedEventEach">
-                            <?php $featured_posts = get_sub_field('event_post_tagged_events_copy');
-                            ?>
-                              <?php   if( $featured_posts ) {
-                                  $post = $featured_posts;
-                                  setup_postdata($post);
-                               ?>
-                               <section class="eventDate">
-                                 <?php 
-                                     $startDate = get_field('event_date_start');
-                                     $endDate = get_field('event_date_end');
-                                     if( !empty( $endDate ) ): ?>
-                                        <?php the_field('event_date_start');?> - <?php the_field('event_date_end'); ?><br>
-                                     <?php else: ; ?>
-                                      <?php the_field('event_date_start');?></br>
-                                     <?php endif; ?>
-                               </section>
-                               <section class="eventTitletitle">
-                                 <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
-                                   <?php the_title(); ?>
-                                 </a>
-                               </section>
-                                <?php  wp_reset_postdata(); ?> 
-                              <?php  } ?>
-                          </section>
-                          
+                           <section class="eventDate">
+                             <?php 
+                                 $startDate = get_field('event_date_start');
+                                 $endDate = get_field('event_date_end');
+                                 if( !empty( $endDate ) ): ?>
+                                    <?php the_field('event_date_start');?> - <?php the_field('event_date_end'); ?><br>
+                                 <?php else: ; ?>
+                                  <?php the_field('event_date_start');?></br>
+                                 <?php endif; ?>
+                           </section>
+                           <section class="eventTitletitle">
+                             <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
+                               <?php the_title(); ?>
+                             </a>
+                           </section>
+
+                            <?php  wp_reset_postdata(); ?> 
+                          <?php  } ?>
                         </section>
-                      </section>
-                    <?php endwhile; ?>
-                <?php endif; ?> 
+                <?php endwhile; ?>
+            <?php endif; ?> 
+             </section>
+           </section>
 
                 
 
