@@ -66,23 +66,28 @@
   <?php } ?>
   <?php if( get_field('content_option_citations') == 'pdfFile' ) {; ?>
     <article id="post-<?php the_ID(); ?>" class="citationsPost" aria-label="citations item container">
-      <?php if( have_rows('pdf_citations' ) ): ?>
-          <?php while( have_rows('pdf_citations') ): the_row(); ?>
-            <a href="<?php the_sub_field('pdf_file',) ;?>" target="_blank">
-               <section class="citationsInner">
-              <?php 
-              $image = get_sub_field('pdf_image_cover');
-              if( !empty( $image ) ): ?>
-             
-                
-             
-                  <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-              <?php endif; ?>
-              <section class="postTitle"><?php the_title(); ?></section>
-               </section>
-            </a>
-           <?php endwhile; ?>
-         <?php endif; ?>     
+      <section class="citationsInner">
+        <section class="pdfHolder">
+          <object
+            data='<?php the_field('pdf_file');?>'
+            type="application/pdf"
+            width="500"
+            height="678"
+          >
+
+            <iframe
+              src='<?php the_field('pdf_file');?>'
+              width="500"
+              height="678"
+            >
+            <p>This browser does not support PDF!</p>
+            </iframe>
+          </object>
+
+        </section>
+      </section>
+      <section class="postTitle"><?php the_title(); ?></section>
+        
     </article>
   <?php } ?>
 

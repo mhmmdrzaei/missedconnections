@@ -65,6 +65,14 @@ function project_scripts() {
   	true //load in footer
   );
 
+  wp_enqueue_script(
+  	'infoBubble',
+  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobubble/src/infobubble.js",
+  	false, //dependencies
+  	null, //version number
+  	true //load in footer
+  );
+
     wp_enqueue_script(
     	'gsap',
     	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://unpkg.co/gsap@3/dist/gsap.min.js",

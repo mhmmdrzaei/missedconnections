@@ -189,6 +189,28 @@
                 <?php endwhile; ?>
             <?php endif; ?> 
 
+          <?php elseif( get_row_layout() == 'google_map_points' ): ?> 
+            <?php if( have_rows('google_map_container') ): ?>
+                <div class="acf-map artistMap" data-zoom="16">
+                    <?php while ( have_rows('google_map_container') ) : the_row(); 
+
+                        // Load sub field values.
+                        $location = get_sub_field('point_location');
+                        $title = get_sub_field('point_title');
+                        $description = get_sub_field('point_description');
+                        ?>
+                        <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>">
+                          <section class="innerInfoWindow">
+                            <h3><?php echo esc_html( $title ); ?></h3>
+                            <p><em><?php echo esc_html( $location['address'] ); ?></em></p>
+                            <p><?php echo esc_html( $description ); ?></p>
+                          </section>
+                            
+                        </div>
+                <?php endwhile; ?>
+                </div>
+            <?php endif; ?>
+
           <?php elseif( get_row_layout() == 'contributors_list' ): ?> 
             <?php if( have_rows('contributors_repeater_container') ): ?>
                 <?php while( have_rows('contributors_repeater_container') ): the_row(); ?>

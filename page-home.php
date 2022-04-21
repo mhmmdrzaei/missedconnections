@@ -66,7 +66,7 @@
    <section class="artistsHome" id="artists">
      <?php $args = array( 'post_type' => 'artists', 'order' => 'DCS', 'posts_per_page' => -1 );
        query_posts( $args ); while ( have_posts() ) : the_post(); ?>
-
+      <a  class="artistLink" href="<?php the_permalink(); ?>">
        <section class="artistEach">
          <?php if( get_field('language_options') == 'Single Language' ) {; ?>
 
@@ -97,10 +97,12 @@
                </figure>
             <?php } ?>
        </section>
+     </a>
        <?php endwhile; ?>
       <?php wp_reset_query(); ?> 
 
    </section>
+
 </main>
 
 

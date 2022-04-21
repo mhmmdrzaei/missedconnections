@@ -61,21 +61,21 @@ html.page-id-46 , body.page-id-46 {
 body {
 	background: #EEE9D9;
 	font-family: 'Elliot Sans', sans-serif;
-	font-size:24px;
+	font-size:20px;
 }
 h1,h2,h3,h4,h5,h6,b {
 font-family: 'Elliot Sans Bold', sans-serif;
 margin: 0;
 }
 h1 {
-	font-size: 56px;
-	margin-bottom: 20px;
+	font-size: 50px;
+	margin-bottom: 10px;
 }
 h2 {
-	 font-size: 32px;
+	 font-size: 28px;
 }
 h3 {
-	font-size: 24px;
+	font-size: 20px;
 }
 a {
 	color: black;
@@ -151,11 +151,12 @@ main {
 //citations
 .citationsPost {
   position: fixed;
-  width: 100%;
+  width: 98%;
+  margin: 0 auto;
   height:fit-content;
   margin-bottom: 20px;
   top: 25%;
-  // left: 1;
+  left: 0;
   visibility: visible;
   transform: scale(1);
   
@@ -188,7 +189,7 @@ article.citationsPost:not(.citationsPost:nth-child(1)) {
 	@include fontSize(20);
 	margin-top: 35vh;
 	text-align: center;
-	height: 80vh;
+	height: calc(80vh - 100px);
 	width: 100%;
 }
 @keyframes shakeShake {
@@ -204,6 +205,9 @@ article.citationsPost:not(.citationsPost:nth-child(1)) {
 	content: url(images/arrow.png);
 
 
+}
+.newsHome {
+	padding-top: 100px;
 }
 .postEach {
 	@extend .flex;
@@ -226,19 +230,27 @@ article.citationsPost:not(.citationsPost:nth-child(1)) {
 		width: 58%;
 	}
 }
+.artistsHome {
+	padding-top: 10px;
+}
+.artistLink {
+	text-decoration: none;
+	&:hover {
+		color: black;
+	}
+}
 .artistEach {
 	@extend .flex;
 	justify-content:space-between;
-	margin: 100px 0; 
+	align-items:center;
+	margin: 100px auto; 
 	figure {
 		width: 40%;
 		text-align: right;
 	}
 	.openingDesc {
 		width: 40%;
-		h1 {
-			margin-bottom: 30px;
-		}
+
 		.openingDesciption {
 			display: none;
 		}
@@ -280,8 +292,11 @@ article.citationsPost:not(.citationsPost:nth-child(1)) {
 		padding: 0 10px 
 	}
 
-.languageChoiceContent:nth-child(4){
+.languageChoiceContent{
 	display: none;
+}
+.visible {
+	display: block;
 }
 .openingTitle {
 	@extend .artistEach;
@@ -471,7 +486,14 @@ article.citationsPost:not(.citationsPost:nth-child(1)) {
 		}
 	}
 }
+// map 
 
+.innerInfoWindow {
+	padding: 12px 0 0 12px;
+}
+.artistMap {
+	margin: 20vh auto;
+}
 // get in touch
 .pageGetInTouch {
 	min-height: 45vh;
@@ -489,14 +511,35 @@ article.citationsPost:not(.citationsPost:nth-child(1)) {
 	justify-content: space-between;
 	// align-items: center;
 	margin: 80px auto;
-	h1 {
+	.pageTitlePage {
 		width: 25%;
-		// position: absolute;
+		position: relative;
+			h1 {
+		position: fixed;
+		top: 48vh;
+		}
 	}
+
 	.pageContent {
 		width: 70%;
 	}
 }
-
-
+//events page singler
+.eventContainer {
+	margin: 20vh auto;
+	@extend .flex;
+	justify-content: space-between;
+	h1 {
+		width: 100%;
+	}
+	.sideImage {
+		width: 42%;
+	}
+	.eventContent {
+		width: 55%;
+		.dateTime {
+			margin: 5px 0;
+		}
+	}
+}
 

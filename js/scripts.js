@@ -108,7 +108,7 @@ let sections = gsap.utils.toArray(".citationsPost"),
 gsap.defaults({overwrite: 'auto', duration: 0.3});
 
 // stretch out the body height according to however many sections there are. 
-gsap.set("#pageCitations", {height: (sections.length * 100) + "%"});
+gsap.set("#pageCitations", {height: (sections.length * 80) + "%"});
 
 // create a ScrollTrigger for each section
 sections.forEach((section, i) => {
@@ -138,7 +138,63 @@ function setSection(newSection) {
 // }).scroll(2);
 
 
+//languages options
+
+$('.languageChoiceContent:nth-child(2)').addClass('visible');
+
+
+ $(".languageChoiceEach").click(function() {
+
+    if ($('.languageChoiceContent').hasClass('visible')) {
+      $('.languageChoiceContent').removeClass('visible');
+
+    } 
+    $(this).next('.languageChoiceContent').addClass('visible');
+
+  });
+
+
+
+$(window).scroll(function() {
+  var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
+  var x = $(window).width();
+  if ((scrollBottom > 350) && (x > 700)) {
+  	$(".languageChoiceEach").fadeIn(100);
+  	 $(".pageTitlePage h1").css('position', 'fixed');
+
+  } else if ((scrollBottom < 350) && (x > 700)) {
+    $(".languageChoiceEach").fadeOut(100);
+    $(".pageTitlePage h1").css('position', 'relative');
+
+
+  }
 });
+ //smoothscroll
+ 	$("a").on('click', function(event) {
+
+ 	  // Make sure this.hash has a value before overriding default behavior
+ 	  if (this.hash !== "") {
+ 	    // Prevent default anchor click behavior
+ 	    event.preventDefault();
+
+ 	    // Store hash
+ 	    var hash = this.hash;
+
+ 	    // Using jQuery's animate() method to add smooth page scroll
+ 	    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+ 	    $('html, body').animate({
+
+ 	      scrollTop: $(hash).offset().top
+ 	    }, 800, function(){
+
+ 	      // Add hash (#) to URL when done scrolling (default click behavior)
+ 	      window.location.hash = hash;
+ 	    });
+ 	  } // End if
+ 	});
+
+});
+
 
 //google maps
 (function( $ ) {

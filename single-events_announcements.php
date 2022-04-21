@@ -2,7 +2,6 @@
 <main>
   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
   <section class="eventContainer">
-    <h1><?php the_title(); ?></h1>
     <section class="sideImage">
       <figure>
         <?php the_post_thumbnail('large');?>
@@ -18,19 +17,20 @@
             if( !empty( $endDate ) ): ?>
                <?php the_field('event_date_start');?> - <?php the_field('event_date_end'); ?><br>
             <?php else: ; ?>
-             <?php the_field('event_date_start');?></br>
+             <?php the_field('event_date_start');?><br>
             <?php endif; ?>
-            <p><?php the_field('event_time'); ?></p>
+            <?php the_field('event_time'); ?>
       </section>
     <?php }; ?>
     <section class="evenDescription">
       <?php the_field('event_description'); ?>
     </section>
+
     <?php 
     $embedded = get_field('embedded_media_events');
     if( !empty( $embedded ) ):
      ?>
-     <section class="embeddedContent">
+     <section class="videoContainer">
        <?php the_field('embedded_media_events'); ?>
      </section>
    <?php endif; ?>
