@@ -3,28 +3,28 @@
 <main class="homepageContainer">
 
    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-   <section class="homepageText">
+   <section class="homepageText gs_reveal">
       <?php the_content(); ?>
       <a href="#newsHome" >
       <div class="arrowDown"></div>
       </a>
    </section>
    <?php endwhile; // end the loop?>
-   <section class="newsHome" id="newsHome">
+<!--    <section class="newsHome" id="newsHome">
       <?php $args = array( 'post_type' => 'events_announcements', 'order' => 'DCS', 'posts_per_page' => 5 );
         query_posts( $args ); while ( have_posts() ) : the_post(); ?>
-        <section class="postEach">
-            <figure>
+        <section class="postEach  ">
+            <figure class=" gs_reveal gs_reveal_fromLeft">
               <?php the_post_thumbnail('large');?>
             </figure>
-            <section class="postInfoText">
+            <section class="postInfoText gs_reveal gs_reveal_fromRight">
               <a  class="updateTitle" href="<?php the_permalink(); ?>">
               <?php 
                   $startDate = get_field('event_date_start');
                   $endDate = get_field('event_date_end');
                   if( !empty( $endDate ) ): ?>
                      <h3><?php the_field('event_date_start');?> - <?php the_field('event_date_end'); ?></h3>
-                  <?php elseif( !empty( $startDate ) ): ?>>
+                  <?php elseif( !empty( $startDate ) ): ?>
                    <h3><?php the_field('event_date_start');?></h3>
                   <?php endif; ?>
               <?php 
@@ -56,34 +56,34 @@
         </section>
 
          <?php endwhile; ?>
-        <?php wp_reset_query(); ?> 
-      </div> 
+        <?php wp_reset_query(); ?>  -->
+
 
  
 
    </section>
 
-   <section class="artistsHome" id="artists">
-     <?php $args = array( 'post_type' => 'artists', 'order' => 'DCS', 'posts_per_page' => -1 );
-       query_posts( $args ); while ( have_posts() ) : the_post(); ?>
-      <a  class="artistLink" href="<?php the_permalink(); ?>">
-       <section class="artistEach">
-         <?php if( get_field('language_options') == 'Single Language' ) {; ?>
-
-             <section class="openingDesc">
-               <h1><?php the_title(); ?></h1>
-               <section class="openingDesciption">
-                 <?php the_field('page_description'); ?>
-               </section>
-             </section>
-             <figure>
-               <?php the_post_thumbnail('large');?>
-             </figure>
-          <?php } ?>
+   <section class="artistsHome scenes" id="artists">
+    <section class="scenes__wrap">
+      <div class="scenes__items">
+    <?php $args = array( 'post_type' => 'artists', 'order' => 'DCS', 'posts_per_page' => -1 );
+      query_posts( $args ); while ( have_posts() ) : the_post(); ?>
+        
+          <article class="artistEach scene">
+            <?php if( get_field('language_options') == 'Single Language' ) {; ?>
+            <section class="scene__header openingDesc">
+              <a  class="artistLink" href="<?php the_permalink(); ?>">
+              <h1><?php the_title(); ?></h1>
+              <section class="openingDesciption ">
+                <?php the_field('page_description'); ?>
+              </section>
+            </a>
+            </section>
+            <?php } ?>
             <?php if( get_field('language_options') == 'Multi-Language' ) {; ?>
-
-               <section class="openingDesc">
-                 <h1><?php the_title(); ?></h1>
+              <section class="scene__header openingDesc">
+                <a  class="artistLink" href="<?php the_permalink(); ?>">
+                <h1><?php the_title(); ?></h1>
                   <?php if( have_rows('multi_language_fields') ): ?>
                   <?php while( have_rows('multi_language_fields') ): the_row(); ?>
                       <section class="openingDesciption">
@@ -91,17 +91,22 @@
                       </section>
                     <?php endwhile; ?>
                 <?php endif; ?> 
+              </a>
               </section>
-              <figure>
-                <?php the_post_thumbnail('large');?>
-               </figure>
             <?php } ?>
-       </section>
-     </a>
+            <figure class="scene__figure">
+              <a  class="artistLink" href="<?php the_permalink(); ?>">
+              <?php the_post_thumbnail('large');?>
+            </a>
+            </figure>
+          </article>
        <?php endwhile; ?>
       <?php wp_reset_query(); ?> 
-
+       
+     </div>
    </section>
+   </section>
+
 
 </main>
 

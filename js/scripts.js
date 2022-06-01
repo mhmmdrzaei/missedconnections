@@ -1,5 +1,11 @@
 $(function(){
 
+	var player = videojs('my-video', {
+	  responsive: true
+	});
+	 _V_.ControlBar.prototype.options.components = {'playToggle':{}}
+
+
 	if ($(window).width() > 775) {
 
 	$('ul.sub-menu li').each( function(){
@@ -100,34 +106,61 @@ $(function(){
 
 	$(".text-area").readMore({lines: 6})
 
-	//citations page
 
-let sections = gsap.utils.toArray(".citationsPost"),
-    currentSection = sections[0];
+	 $(".blob").click(function() { 
+    $('.navLink').toggleClass('visible');
 
-gsap.defaults({overwrite: 'auto', duration: 0.3});
-
-// stretch out the body height according to however many sections there are. 
-gsap.set("#pageCitations", {height: (sections.length * 80) + "%"});
-
-// create a ScrollTrigger for each section
-sections.forEach((section, i) => {
-  ScrollTrigger.create({
-    // use dynamic scroll positions based on the window height (offset by half to make it feel natural)
-    start: () => (i - 0.5) * innerHeight,
-    end: () => (i + 0.5) * innerHeight,
-    // when a new section activates (from either direction), set the section accordinglyl.
-    onToggle: self => self.isActive && setSection(section)
   });
-});
 
-function setSection(newSection) {
-  if (newSection !== currentSection) {
-    gsap.to(currentSection, {scale: 1, autoAlpha: 0})
-    gsap.to(newSection, {scale: 1, autoAlpha: 1});
-    currentSection = newSection;
-  }
-}
+	$('.navLink').click(function() {
+		$('.navLink').toggleClass('visible');
+	});
+
+
+//gsap
+
+
+
+
+
+
+
+
+
+
+
+
+// 	//citations page
+
+
+
+
+// let sections = gsap.utils.toArray(".citationsPost"),
+//     currentSection = sections[0];
+
+// gsap.defaults({overwrite: 'auto', duration: 0.3});
+
+// // stretch out the body height according to however many sections there are. 
+// gsap.set("#pageCitations", {height: (sections.length * 80) + "%"});
+
+// // create a ScrollTrigger for each section
+// sections.forEach((section, i) => {
+//   ScrollTrigger.create({
+//     // use dynamic scroll positions based on the window height (offset by half to make it feel natural)
+//     start: () => (i - 0.5) * innerHeight,
+//     end: () => (i + 0.5) * innerHeight,
+//     // when a new section activates (from either direction), set the section accordinglyl.
+//     onToggle: self => self.isActive && setSection(section)
+//   });
+// });
+
+// function setSection(newSection) {
+//   if (newSection !== currentSection) {
+//     gsap.to(currentSection, {scale: 1, autoAlpha: 0})
+//     gsap.to(newSection, {scale: 1, autoAlpha: 1});
+//     currentSection = newSection;
+//   }
+// }
 
 // // handles the infinite part, wrapping around at either end....
 // ScrollTrigger.create({
@@ -140,7 +173,7 @@ function setSection(newSection) {
 
 //languages options
 
-$('.languageChoiceContent:nth-child(2)').addClass('visible');
+$('.languageChoiceContent:nth-child(3)').addClass('visible');
 
 
  $(".languageChoiceEach").click(function() {
@@ -153,6 +186,12 @@ $('.languageChoiceContent:nth-child(2)').addClass('visible');
 
   });
 
+//even odd home page artists
+
+// $('.artistLink:nth-child(odd) figure').addClass('gs_reveal_fromRight');
+// $('.artistLink:nth-child(odd) .openingDesc').addClass('gs_reveal_fromBottom');
+// $('.artistLink:nth-child(even) figure').addClass('gs_reveal_fromLeft');
+// $('.artistLink:nth-child(even) .openingDesc').addClass('gs_reveal_fromBottom');
 
 
 $(window).scroll(function() {
@@ -321,3 +360,258 @@ $(document).ready(function(){
 });
 
 })(jQuery);
+
+// gsap
+
+function animateFrom(elem, direction) {
+	  gsap.registerPlugin(ScrollTrigger);
+  direction = direction || 1;
+  var x = 0,
+      y = direction * 100;
+  if(elem.classList.contains("gs_reveal_fromLeft")) {
+    x = -200;
+    y = 0;
+  } else if (elem.classList.contains("gs_reveal_fromRight")) {
+    x = 200;
+    y = 0;
+
+  } 
+  // else if (elem.classList.contains("gs_reveal_fromBottom")) {
+  //   // x = 0;
+  //   // y = 200;
+
+  // }
+  // gsap.set(".gs_reveal_fromBottom", { yPercent: 0});
+
+  // gsap.to(".gs_reveal_fromBottom", {
+  //   // yPercent: -25,
+  //   ease: "none",
+  //    y: 0, 
+  //    opacity: 1,
+  //   scrollTrigger: {
+  //     trigger: ".artistLink",
+  //     start: "top center",
+  //     end: "top 50px",
+  //     // pin: true,
+  //     scrub: 3
+  //   }, 
+  // });
+  elem.style.transform = "translate(" + x + "px, " + y + "px)";
+  elem.style.opacity = "0";
+  gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
+    duration: 2.25, 
+    x: 10,
+    y: 10, 
+    autoAlpha: 1, 
+    // ease: "expo", 
+    overwrite: "auto",
+    ease: "power2",
+    stagger: 0.3
+  });
+}
+
+function hide(elem) {
+  gsap.set(elem, {autoAlpha: 0});
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  gsap.registerPlugin(ScrollTrigger);
+  
+  gsap.utils.toArray(".gs_reveal").forEach(function(elem) {
+    hide(elem); // assure that the element is hidden when scrolled into view
+    
+    ScrollTrigger.create({
+      trigger: elem,
+      onEnter: function() { animateFrom(elem) }, 
+      onEnterBack: function() { animateFrom(elem, -1) },
+      onLeave: function() { hide(elem) } // assure that the element is hidden when scrolled into view
+    });
+  });
+});
+
+
+
+
+
+
+
+
+// Scroll Scenes 
+const scenes = gsap.utils.toArray('.scene');
+
+// maybe use dymanic height for pin/scroll ends?
+const height = ((scenes.length - 1) * 200) + '%';
+
+// Scenes Timeline
+const pinTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".scenes__items",
+    pin: ".scenes",
+    start: "center center",
+    end: `+=${height}`,
+   // onEnterBack: () => startVideo(scenes[scenes.length - 1]),
+    scrub: true,
+  }
+});
+
+// Set scenes wrapper to absolute
+gsap.set(scenes, {position: "absolute", top: "20vh" });
+
+// Loop over scenes
+scenes.forEach(function(elem, i) {
+
+  
+  if (i != 0) {
+    // Scene Enter animations
+    pinTl.from(elem.querySelector('.scene__figure'), { 
+        autoAlpha:0, 
+      }, i
+    )
+
+    pinTl.from(elem.querySelector('.scene__header'), { 
+      autoAlpha:0, 
+      translateY: 100,
+      }, i
+    )
+        pinTl.from(elem.querySelector('.scene__figureCite'), { 
+        autoAlpha:0, 
+      }, i
+    )
+
+    pinTl.from(elem.querySelector('.scene__headerCite'), { 
+      autoAlpha:0, 
+      translateY: 100,
+      }, i
+    )
+  }
+
+  if (i < scenes.length) {
+    pinTl.to(elem.querySelector('.scene__header'), { 
+
+        className: "scene__header zIndex openingDesc"
+
+      }, i 
+     )
+    pinTl.to(elem.querySelector('.scene__figure'), { 
+        className: "scene__figure zIndex",
+        
+      }, i
+    )
+    pinTl.to(elem.querySelector('.scene__headerCite'), { 
+
+        className: "scene__headerCite zIndex postTitle"
+
+      }, i 
+     )
+    pinTl.to(elem.querySelector('.scene__figureCite'), { 
+        className: "scene__figureCite zIndex",
+        
+      }, i
+    )
+  }
+   
+  // Scene Exit animations
+  if (i != scenes.length - 1) {
+    pinTl.to(elem.querySelector('.scene__header'), { 
+        autoAlpha:0, 
+        translateY: -100,
+      }, i + 0.75
+    )
+    pinTl.to(elem.querySelector('.scene__figure'), { 
+        autoAlpha:0,
+      }, i + 0.75
+    )
+    pinTl.to(elem.querySelector('.scene__headerCite'), { 
+        autoAlpha:0, 
+        translateY: -100,
+      }, i + 0.75
+    )
+    pinTl.to(elem.querySelector('.scene__figureCite'), { 
+        autoAlpha:1,
+      }, i + 0.75
+    )
+  }
+  
+  // Vid start / pause logic
+  pinTl.add(() => pinTl.scrollTrigger.direction > 0 ? stopVideo(elem, i) : startVideo(elem, i), i + 1.25)
+
+
+});	
+
+// add a tiny amount of empty space at the end of the timeline so that the playhead trips the final callback in both directions
+pinTl.to({}, {duration: 0.001});
+
+/** 
+ * Start Video 
+ * @param {HTML ELement} - element containing video
+ */
+function startVideo(vidScene, i) { 
+  const vid = vidScene.querySelector('video');
+  console.log("start", i);
+  if (vid) {
+    // console.log("Start Vid", vid)
+    vid.play()
+  }
+}
+
+
+/** 
+ * Stop Video 
+ * @param {HTML ELement} - element containing video
+ */
+function stopVideo(vidScene, i) {
+  const vid = vidScene.querySelector('video');
+  console.log("stop", i);
+  if (vid) {
+    // console.log("end vid", vid)
+    vid.pause()
+  }
+}
+
+gsap.to(".svg1", {
+  yPercent: 50,
+  ease: "none",
+  scrollTrigger: {
+    trigger: "body",
+    // start: "top bottom", // the default values
+    // end: "bottom top",
+    scrub: true
+  }, 
+});
+gsap.to(".svg2", {
+  yPercent: 20,
+  ease: "none",
+  scrollTrigger: {
+    trigger: "body",
+    // start: "top bottom", // the default values
+    // end: "bottom top",
+    scrub: true
+  }, 
+});
+gsap.to(".svg4", {
+  yPercent: 60,
+  ease: "none",
+  scrollTrigger: {
+    trigger: "body",
+    // start: "top bottom", // the default values
+    // end: "bottom top",
+    scrub: true
+  }, 
+});
+
+gsap.to(".svg3", {
+  yPercent: 60,
+  ease: "none",
+  scrollTrigger: {
+    trigger: "body",
+    // start: "top bottom", // the default values
+    // end: "bottom top",
+    scrub: true
+  }, 
+});
+
+]
+
+
+
+

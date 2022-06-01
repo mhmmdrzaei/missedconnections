@@ -46,6 +46,7 @@ function project_styles(){
 	wp_enqueue_style('style', get_stylesheet_uri() );
 
 	wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+		wp_enqueue_style('vjs', 'https://vjs.zencdn.net/7.19.2/video-js.css');
 }
 
 add_action( 'wp_enqueue_scripts', 'project_styles');
@@ -72,10 +73,24 @@ function project_scripts() {
   	null, //version number
   	true //load in footer
   );
+    wp_enqueue_script(
+  	'vjs',
+  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://vjs.zencdn.net/7.19.2/video.min.js",
+  	false, //dependencies
+  	null, //version number
+  	true //load in footer
+  );
 
     wp_enqueue_script(
     	'gsap',
     	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://unpkg.co/gsap@3/dist/gsap.min.js",
+    	false, //dependencies
+    	null, //version number
+    	true //load in footer
+    );
+    wp_enqueue_script(
+    	'smoothscroll',
+    	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.5.2/smooth-scrollbar.js",
     	false, //dependencies
     	null, //version number
     	true //load in footer
