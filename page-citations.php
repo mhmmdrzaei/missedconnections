@@ -74,14 +74,14 @@
               <object
                 data='<?php the_field('pdf_file');?>'
                 type="application/pdf"
-                width="400"
-                height="500"
+                width="350"
+                height="450"
               >
 
                 <iframe
                   src='<?php the_field('pdf_file');?>'
-                  width="500"
-                  height="678"
+                  width="350"
+                  height="450"
                 >
                 <p>This browser does not support PDF!</p>
                 </iframe>

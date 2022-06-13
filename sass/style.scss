@@ -62,7 +62,7 @@ img {
 body {
 	background: #EEE9D9;
 	font-family: 'Elliot Sans', sans-serif;
-	font-size:16px;
+	font-size:14px;
 }
 h1,h2,h3,h4,h5,h6,b {
 font-family: 'Elliot Sans Bold', sans-serif;
@@ -106,7 +106,7 @@ main {
 
 .videoContainer { 
     position: relative; 
-    padding-bottom: 56.25%;
+    // padding-bottom: 56.25%;
     overflow: hidden;
     max-width: 100%;
     height: auto;
@@ -203,15 +203,15 @@ main {
 	}
 	img {
 		// max-height: 400px;
-		max-height: 600px;
+		max-height: 450px;
 		width: auto;
 		height: auto;
 	}
 	.videoContainer, .pdfHolder {
-		width: 80%;
+		width: 75%;
 	}
 	.scene__figureCite {
-		width: 80%;
+		width: 75%;
 	}
 }
 .titleOut {
@@ -222,7 +222,7 @@ main {
 }
 //homepage
 .homepageText {
-	@include fontSize(20);
+	@include fontSize(18);
 	margin-top: 35vh;
 	text-align: center;
 	height: calc(80vh - 100px);
