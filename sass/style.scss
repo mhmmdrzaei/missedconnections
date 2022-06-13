@@ -726,4 +726,77 @@ main {
 		}
 	}
 }
+//media quaries
+
+@media(max-width: 750px){ 
+
+#menu-wrapper{
+	display: block;
+}
+.menu {
+	display: none;
+}
+.headerContainer {
+
+	justify-content: space-between;
+	padding: 0 20px;
+.title {
+	width: auto;
+}
+}
+.homepageText {
+	width: 95%;
+}
+.artistEach {
+	display: block;
+	.openingDesc {
+		width: 100%;
+	}
+	.scene__figure {
+		width: 100%;
+		order: 1;
+	}
+}
+.footerContainer {
+	display: block;
+	.savacAddress, .colophon {
+		width: 55%;
+	}
+	.landAck {
+		width: 100%;
+	}
+}
+.activeMenu {
+	display: block;
+	position: absolute;
+	left: 153px;
+	height: 100vh;
+	top: 55px;
+	background: #2d3f25;
+	padding: 20px;
+	width: 231px;
+	li {
+		width: 100%;
+		text-align: left;
+
+
+	}
+}
+#menu-header-menu li>ul.sub-menu {
+	display: block;
+}
+.menu li:hover {
+	background: #2d3f25;
+}
+.sub-menu{
+	position: inherit;
+	font-size: 14px;
+	li {
+		padding: 10px 0;
+	}
+}
+}
+
+
+
 

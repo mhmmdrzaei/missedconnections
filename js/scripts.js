@@ -1,5 +1,10 @@
 $(function(){
 
+    $('#menu-wrapper').click(function() {
+          $("#menu-header-menu").toggleClass('activeMenu');
+    });
+
+
 	var player = videojs('my-video', {
 	  responsive: true
 	});
@@ -610,7 +615,7 @@ gsap.to(".svg3", {
   }, 
 });
 
-]
+
 
 
 

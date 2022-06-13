@@ -27,6 +27,10 @@
         'container' => false,
         'theme_location' => 'primary'
       )); ?>
+      <div id="menu-wrapper">
+         <div id="hamburger-menu"><span></span><span></span><span></span></div>
+         <!-- hamburger-menu -->
+      </div>
   </main>
 
 </header><!--/.header-->
