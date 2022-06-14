@@ -1,15 +1,5 @@
 $(function(){
 
-    $('#menu-wrapper').click(function() {
-          $("#menu-header-menu").toggleClass('activeMenu');
-    });
-
-
-	var player = videojs('my-video', {
-	  responsive: true
-	});
-	 _V_.ControlBar.prototype.options.components = {'playToggle':{}}
-
 
 	if ($(window).width() > 775) {
 
@@ -22,6 +12,20 @@ $(function(){
 	});
 
 	}
+
+
+    // var player = videojs('my-video', {
+    //   responsive: true
+    // });
+    //  _V_.ControlBar.prototype.options.components = {'playToggle':{}}
+
+    $('#menu-wrapper').click(function() {
+          $("#menu-header-menu").toggleClass('activeMenu',1000, "easeOutSine");
+          $('body').toggleClass('hidden');
+          $('.languageChoiceEach').toggleClass('fontColour');
+
+
+    });
 
 	  $.fn.readMore = function(options) {
 	    if(options === 'destroy') {
@@ -405,8 +409,8 @@ function animateFrom(elem, direction) {
   elem.style.opacity = "0";
   gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
     duration: 2.25, 
-    x: 10,
-    y: 10, 
+    x: 0,
+    y: 0, 
     autoAlpha: 1, 
     // ease: "expo", 
     overwrite: "auto",
@@ -442,6 +446,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // Scroll Scenes 
+if ($(window).width() > 775) {
 const scenes = gsap.utils.toArray('.scene');
 
 // maybe use dymanic height for pin/scroll ends?
@@ -571,6 +576,7 @@ function stopVideo(vidScene, i) {
     // console.log("end vid", vid)
     vid.pause()
   }
+}
 }
 
 gsap.to(".svg1", {

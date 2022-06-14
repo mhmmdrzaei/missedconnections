@@ -267,13 +267,6 @@
         
                     <section class="contributorEachContainer gs_reveal gs_reveal_fromRight">
                       <section class="contributorEach">
-                        <figure>
-                          <?php 
-                          $imageCont = get_sub_field('contributor_image');
-                          if( !empty( $imageCont ) ): ?>
-                              <img src="<?php echo esc_url($imageCont['url']); ?>" alt="<?php echo esc_attr($imageCont['alt']); ?>" />
-                          <?php endif; ?>
-                        </figure>
                         <section class="contributorInformation">
                           <h3><?php the_sub_field('contributor_name') ?></h3>
                           <section class="contributorBio">
@@ -522,13 +515,6 @@
                 
                           <section class="contributorEachContainer">
                             <section class="contributorEach gs_reveal gs_reveal_fromRight">
-                              <figure>
-                                <?php 
-                                $imageCont = get_sub_field('contributor_image');
-                                if( !empty( $imageCont ) ): ?>
-                                    <img src="<?php echo esc_url($imageCont['url']); ?>" alt="<?php echo esc_attr($imageCont['alt']); ?>" />
-                                <?php endif; ?>
-                              </figure>
                               <section class="contributorInformation">
                                 <h3><?php the_sub_field('contributor_name') ?></h3>
                                 <section class="contributorBio">

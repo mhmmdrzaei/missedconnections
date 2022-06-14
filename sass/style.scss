@@ -69,7 +69,7 @@ font-family: 'Elliot Sans Bold', sans-serif;
 margin: 0;
 }
 h1 {
-	font-size: 46px;
+	font-size: 40px;
 	margin-bottom: 10px;
 }
 h2 {
@@ -222,7 +222,7 @@ main {
 }
 //homepage
 .homepageText {
-	@include fontSize(18);
+	@include fontSize(20);
 	margin-top: 35vh;
 	text-align: center;
 	height: calc(80vh - 100px);
@@ -437,13 +437,16 @@ main {
 
 .languageChoiceEach {
 	position: fixed;
-	bottom: 50px;
+	bottom: 3vh;
 	right: 40px;
 	cursor: pointer;
 }
 
+.fontColour {
+	color: white;
+}
 .languageChoiceEach:nth-child(2) {
-		right: 100px;
+		right: 70px;
 		border-right: 1px solid black;
 		padding: 0 10px 
 	}
@@ -502,6 +505,10 @@ main {
 	.pdfHolder {
 		border: 1px solid black;
 		height: auto;
+		position: relative;
+		    overflow: hidden;
+		    max-width: 100%;
+		    height: auto;
 	}
 }
 .videoRepContainer {
@@ -541,6 +548,14 @@ main {
 .htmlvideoContainer {
 	margin: 20vh auto;
 	max-width: 750px;
+
+	 #my-video {
+	 	position: relative;
+	 	    overflow: hidden;
+	 	    max-width: 100%;
+	 	    height: auto;
+	 }
+	 
 	video {
 		width: 100%;
 		height: auto;
@@ -748,12 +763,14 @@ main {
 	width: 95%;
 }
 .artistEach {
-	display: block;
+	margin: 0 auto 8vh;
 	.openingDesc {
 		width: 100%;
+		order: 2;
 	}
 	.scene__figure {
-		width: 100%;
+		width: 85%;
+		margin: 0 auto 20px;
 		order: 1;
 	}
 }
@@ -766,10 +783,21 @@ main {
 		width: 100%;
 	}
 }
+@keyframes fromRight {
+     0% {right:-150px}
+    100% {right:0 }
+ }
+ @keyframes fromleft {
+     0% {right:0px}
+    100% {right:-150px }
+ }
 .activeMenu {
 	display: block;
-	position: absolute;
-	left: 153px;
+	position: fixed;
+	z-index: 4;
+	right: 0;
+	// left: 153px;
+	animation: fromRight 2s;
 	height: 100vh;
 	top: 55px;
 	background: #2d3f25;
@@ -793,6 +821,173 @@ main {
 	font-size: 14px;
 	li {
 		padding: 10px 0;
+	}
+}
+.hidden {
+	overflow: hidden;
+}
+.homepageText {
+	height: auto;
+	margin: 20vh auto;
+	font-size: 24px;
+	.arrowDown {
+		margin-top: 20px;
+	}
+}
+.scenes__items, .scenes__wrap {
+	position: inherit;
+	height: auto;
+	width: auto;
+}
+//artists
+.artistsmain {
+	 margin-top: 18vh;
+}
+.openingTitle {
+	margin: 8vh auto;
+	figure {
+		width: 85%;
+		margin: 0 auto 20px;
+	}
+} 
+.blob {
+	display: none;
+	// z-index: 0;
+}
+.single_large_image_desc {
+	margin: 8vh auto;
+	display: block;
+	figure {
+		width: 95%;
+		margin: 0 auto;
+		margin-bottom: 10px;
+	}
+	.single_large_desc {
+		width: 95%;
+		margin: 0 auto;
+	}
+}
+.multi_large_image_desc {
+	margin: 8vh auto;
+}
+.pdfReaderContainer {
+	margin: 8vh auto;
+	.pdfReaderInformation {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+}
+.embeddedContainer {
+	margin: 8vh auto;
+	display: block;
+}
+.videoRepContainer {
+	margin: 8vh auto;
+	.videoContainerEach {
+		display: block;
+		.videoInformation {
+			width: 100%;
+
+		}
+		.videoOuter {
+			width: 100%;
+		}
+	}
+}
+.readingsContainer,.taggedEventContainer {
+	margin: 8vh auto;
+	display: block;
+	h2 {
+		margin-bottom: 10px;
+	}
+	.readingsEachContainer, .taggedEventEachContainer{
+		width: 100%;
+	}
+}
+.contributorsContainer {
+	margin: 8vh auto;
+	display: block;
+	h2 {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.contributorEachContainer {
+		width: 100%;
+		.contributorEach {
+			display: block;
+			.contributorInformation {
+							width: 100%;
+						}
+		} 
+	} 
+
+}
+.artistMap,.textFullWidth,.fullwidthImg , .htmlvideoContainer{
+	margin: 8vh auto;
+	display: block;
+}
+.ctaButton {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 8vh;
+}
+.languageChoiceEach {
+	// top: 85px;
+	right: 20px;
+	height: 20px;
+	z-index: 1;
+}
+.languageChoiceEach:nth-child(2) {
+	right: 55px;
+}
+//about page
+.singlePage {
+	display: block;
+	.pageTitlePage {
+		width: 100%;
+		h1 {
+			position: inherit;
+			top: 0;
+		}
+	}
+	.pageContent {
+		width: 95%;
+	}
+}
+.pageGetInTouch {
+	min-height: auto;
+	h1 {
+		margin-top: 15vh;
+	}
+	.pageContent {
+	width: 100%;
+	}
+
+}
+
+//citations page
+
+.pageCitations {
+	margin-top: 70px;
+	padding: 10px;
+}
+.citationsInner .scene__figureCite {
+	width: 95%;
+	margin: 0 auto;
+}
+.citationsInner {
+	display: block;
+	margin-bottom: 20px;
+	.pdfHolder {
+			position: relative;
+		    overflow: hidden;
+		    max-width: 100%;
+		    height: auto;
+		    width: 100%;
+	}
+	.postTitle {
+		width: 95%;
+		margin: 10px auto;
 	}
 }
 }
