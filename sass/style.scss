@@ -109,10 +109,10 @@ main {
     // padding-bottom: 56.25%;
     overflow: hidden;
     max-width: 100%;
-    height: auto;
+    height: 100%;
 } 
 
-.videoContainer iframe,
+// .videoContainer iframe,
 .videoContainer object,
 .videoContainer embed { 
     position: absolute;
@@ -593,7 +593,7 @@ main {
 			@extend .flex;
 			width: 100%;
 			align-items: center;
-			height: 76px;
+			min-height: 76px;
 			padding: 24px 30px;
 			border: 1px solid #C2CBEF;
 			&:hover {
@@ -634,21 +634,21 @@ main {
 	margin: 20vh 0;
 	justify-content:space-between;
 	width: 100%;
-	align-items:center;
-	h2 {
+	align-items:top;
+	.contributorsTitle {
+		position: relative;
 		width: 25%;
+		h2 {
+			position: fixed;
+
+		}
 	}
-	.contributorEachContainer {
+
+	.contributorEachContainer  {
 		width: 75%;
-		.contributorEach {
-			@extend .flex;
-			justify-content: space-between;
-			figure {
-				width: 42%;
-			}
-			.contributorInformation {
-				width: 55%;
-			}
+
+		.contributorInformation {
+			width: 80%;
 		}
 	}
 }
@@ -668,7 +668,7 @@ main {
 			justify-content: space-between;
 			width: 100%;
 			align-items: center;
-			height: 76px;
+			min-height: 76px;
 			padding: 24px 30px;
 			border: 1px solid #C2CBEF;
 			background: #C2CBEF;
@@ -939,6 +939,9 @@ main {
 }
 .languageChoiceEach:nth-child(2) {
 	right: 55px;
+}
+..contributorsContainer .contributorsTitle h2 {
+	position: inherit;
 }
 //about page
 .singlePage {

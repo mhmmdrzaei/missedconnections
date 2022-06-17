@@ -406,7 +406,7 @@ function animateFrom(elem, direction) {
   //   }, 
   // });
   elem.style.transform = "translate(" + x + "px, " + y + "px)";
-  elem.style.opacity = "0";
+  elem.style.opacity = "1";
   gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
     duration: 2.25, 
     x: 0,
@@ -420,7 +420,7 @@ function animateFrom(elem, direction) {
 }
 
 function hide(elem) {
-  gsap.set(elem, {autoAlpha: 0});
+  gsap.set(elem, {autoAlpha: 1});
 }
 
 document.addEventListener("DOMContentLoaded", function() {

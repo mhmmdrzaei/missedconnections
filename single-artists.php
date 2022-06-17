@@ -52,17 +52,10 @@
                       <object
                         data='<?php the_sub_field('pdf_file');?>'
                         type="application/pdf"
-                        width="500"
-                        height="678"
+                        width="100%"
+                        height="100%"
+                        style="min-height: 390px;"
                       >
-
-                        <iframe
-                          src='<?php the_sub_field('pdf_file');?>'
-                          width="500"
-                          height="678"
-                        >
-                        <p>This browser does not support PDF!</p>
-                        </iframe>
                       </object>
 
                     </section>
@@ -261,22 +254,25 @@
           <?php elseif( get_row_layout() == 'contributors_list' ): ?> 
             <a href="#contributors" class="navLink"><?php the_sub_field('contributors_label'); ?></a>
             <section class="contributorsContainer" id="contributors">
-              <h2 class="gs_reveal gs_reveal_fromLeft"><?php the_sub_field('contributors_label'); ?></h2>
+              <section class="contributorsContainer" id="contributors">
+                <section class="contributorsTitle gs_reveal gs_reveal_fromLeft">
+                  <h2 class=""><?php the_sub_field('contributors_label'); ?></h2>
+                </section>
+              <section class="contributorEachContainer ">
             <?php if( have_rows('contributors_repeater_container') ): ?>
                 <?php while( have_rows('contributors_repeater_container') ): the_row(); ?>
-        
-                    <section class="contributorEachContainer gs_reveal gs_reveal_fromRight">
-                      <section class="contributorEach">
-                        <section class="contributorInformation">
+                      
+                        <section class="contributorInformation gs_reveal gs_reveal_fromRight">
                           <h3><?php the_sub_field('contributor_name') ?></h3>
                           <section class="contributorBio">
                             <?php the_sub_field('contributor_bio') ?>
                           </section>
-                        </section>
+                        
                       </section>
-                    </section>
+                    
                 <?php endwhile; ?>
             <?php endif; ?> 
+            </section>
               </section>
           <?php endif; ?>
         <?php endwhile; ?>
@@ -342,17 +338,10 @@
                           <object
                             data='<?php the_sub_field('pdf_file');?>'
                             type="application/pdf"
-                            width="500"
-                            height="678"
+                            width="100%"
+                            height="100%"
+                             style="min-height: 390px;"
                           >
-
-                            <iframe
-                              src='<?php the_sub_field('pdf_file');?>'
-                              width="500"
-                              height="678"
-                            >
-                            <p>This browser does not support PDF!</p>
-                            </iframe>
                           </object>
 
                         </section>
@@ -509,22 +498,24 @@
                 <?php elseif( get_row_layout() == 'contributors_list' ): ?> 
                   <a href="#contributors" class="navLink"><?php the_sub_field('contributors_label'); ?></a>
                   <section class="contributorsContainer" id="contributors">
-                    <h2 class="gs_reveal gs_reveal_fromLeft"><?php the_sub_field('contributors_label'); ?></h2>
+                    <section class="contributorsTitle">
+                      <h2 class="gs_reveal gs_reveal_fromLeft"><?php the_sub_field('contributors_label'); ?></h2>
+                    </section>
+                    
+                    <section class="contributorEachContainer">
                   <?php if( have_rows('contributors_repeater_container') ): ?>
                       <?php while( have_rows('contributors_repeater_container') ): the_row(); ?>
-                
-                          <section class="contributorEachContainer">
-                            <section class="contributorEach gs_reveal gs_reveal_fromRight">
-                              <section class="contributorInformation">
+                              <section class="contributorInformation gs_reveal gs_reveal_fromRight">
                                 <h3><?php the_sub_field('contributor_name') ?></h3>
                                 <section class="contributorBio">
                                   <?php the_sub_field('contributor_bio') ?>
                                 </section>
                               </section>
-                            </section>
-                          </section>
+                           
+                         
                       <?php endwhile; ?>
                   <?php endif; ?> 
+                   </section>
                     </section>
 
   

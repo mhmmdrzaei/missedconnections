@@ -170,6 +170,7 @@ function project_page_menu_args( $args ) {
 add_filter( 'wp_page_menu_args', 'project_page_menu_args' );
 
 
+
 /*
  * Sets the post excerpt length to 40 characters.
  */
@@ -375,7 +376,7 @@ function wp_trim_excerpt_modified($text, $content_length = 50, $remove_breaks = 
     if ( '' != $text ) {
         $text = strip_shortcodes( $text );
         $text = excerpt_remove_blocks( $text );
-        $text = apply_filters( 'the_content', $text );
+        $text = apply_filters( 'page_description', $text );
         $text = str_replace(']]>', ']]&gt;', $text);
         $num_words = $content_length;
         $more = $excerpt_more ? $excerpt_more : null;
@@ -411,6 +412,12 @@ function wp_trim_excerpt_modified($text, $content_length = 50, $remove_breaks = 
     }
     return $text;
 }
+
+
+
+
+
+
 /* is_blog() - checks various conditionals to figure out if you are currently within a blog page */
 function is_blog () {
 	global  $post;
