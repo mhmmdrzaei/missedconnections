@@ -49,15 +49,22 @@
                       <h2><?php the_sub_field('pdf_subtitle'); ?></h2>
                     </section>
                     <section class="pdfHolder gs_reveal gs_reveal_fromRight">
-                      <object
-                        data='<?php the_sub_field('pdf_file');?>'
-                        type="application/pdf"
-                        width="100%"
-                        height="100%"
-                        style="min-height: 390px;"
-                      >
-                      </object>
+                        <object
+                          data='<?php the_sub_field('pdf_file');?>'
+                          type="application/pdf"
+                          width="350"
+                          height="450"
+                        >
 
+                          <iframe
+                            src='<?php the_sub_field('pdf_file');?>'
+                            width="350"
+                            height="450"
+                          >
+                          <p>This browser does not support PDF!</p>
+                        </iframe>
+                      </object>
+                      <br><a href="<?php the_sub_field('pdf_file');?>" target="_blank"><?php the_sub_field('pdf_subtitle'); ?> <i class="fa-solid fa-file-pdf"></i></a>
                     </section>
                 <?php endwhile; ?>
             <?php endif; ?> 
@@ -290,7 +297,8 @@
        <section class="languageChoiceEach">
          <?php the_sub_field('language_label'); ?>
        </section>
-      <section class="languageChoiceContent">
+  <section class="languageChoiceContent">
+
          <a href="#description" class="navLink">Description</a>
         <section class="openingTitle" id="description">
           <figure>
@@ -338,12 +346,19 @@
                           <object
                             data='<?php the_sub_field('pdf_file');?>'
                             type="application/pdf"
-                            width="100%"
-                            height="100%"
-                             style="min-height: 390px;"
+                            width="350"
+                            height="450"
                           >
-                          </object>
 
+                            <iframe
+                              src='<?php the_sub_field('pdf_file');?>'
+                              width="350"
+                              height="450"
+                            >
+                            <p>This browser does not support PDF!</p>
+                          </iframe>
+                        </object>
+                          <br><a href="<?php the_sub_field('pdf_file');?>" target="_blank"><?php the_sub_field('pdf_subtitle'); ?> <i class="fa-solid fa-file-pdf"></i></a>
                         </section>
                     <?php endwhile; ?>
                 <?php endif; ?> 
@@ -519,11 +534,13 @@
                     </section>
 
   
-              </section>    
+      
               <?php endif; ?>
             <?php endwhile; ?>
           <?php endif; ?>
+          </section>  
          </section>
+
        
      </section>   
         <?php endwhile; ?>

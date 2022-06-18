@@ -85,8 +85,9 @@
                 >
                 <p>This browser does not support PDF!</p>
                 </iframe>
-              </object>
 
+              </object>
+                <a href="<?php the_field('pdf_file');?>" target="_blank"><?php the_title(); ?> <i class="fa-solid fa-file-pdf"></i></a>
             </section>
              <h2 class="postTitle scene__headerCite"><?php the_title(); ?></h2>
           </section>

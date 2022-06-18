@@ -503,7 +503,6 @@ main {
 		width: 42%;
 	}
 	.pdfHolder {
-		border: 1px solid black;
 		height: auto;
 		position: relative;
 		    overflow: hidden;
@@ -639,7 +638,7 @@ main {
 		position: relative;
 		width: 25%;
 		h2 {
-			position: fixed;
+			// position: fixed;
 
 		}
 	}
@@ -880,6 +879,10 @@ main {
 .embeddedContainer {
 	margin: 8vh auto;
 	display: block;
+	.videoOuter, .embeddedInformation{
+		width: 95%;
+		margin: 0 auto;
+	}
 }
 .videoRepContainer {
 	margin: 8vh auto;
@@ -940,7 +943,7 @@ main {
 .languageChoiceEach:nth-child(2) {
 	right: 55px;
 }
-..contributorsContainer .contributorsTitle h2 {
+.contributorsContainer .contributorsTitle h2 {
 	position: inherit;
 }
 //about page
