@@ -260,7 +260,6 @@
 
           <?php elseif( get_row_layout() == 'contributors_list' ): ?> 
             <a href="#contributors" class="navLink"><?php the_sub_field('contributors_label'); ?></a>
-            <section class="contributorsContainer" id="contributors">
               <section class="contributorsContainer" id="contributors">
                 <section class="contributorsTitle gs_reveal gs_reveal_fromLeft">
                   <h2 class=""><?php the_sub_field('contributors_label'); ?></h2>
@@ -280,7 +279,7 @@
                 <?php endwhile; ?>
             <?php endif; ?> 
             </section>
-              </section>
+          </section>
           <?php endif; ?>
         <?php endwhile; ?>
       <?php endif; ?>
@@ -291,7 +290,7 @@
 <!-- multi language  -->
 
   <?php if( get_field('language_options') == 'Multi-Language' ) {; ?>
-
+            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     <?php if( have_rows('multi_language_fields') ): ?>
         <?php while( have_rows('multi_language_fields') ): the_row(); ?>
        <section class="languageChoiceEach">

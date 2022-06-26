@@ -377,59 +377,150 @@ main {
 	}
 }
 .navLink:nth-child(1),.navLink:nth-child(2) {
-	top: 145px;;
+	top: 145px;
 	border-top: 1px solid black;
 }
 
-.navLink:nth-child(3),.navLink:nth-child(4) {
+.navLink:nth-child(3),.navLink:nth-child(5),.navLink:nth-child(10),.navLink:nth-child(11)  {
 	top: 187px;
+
 }
-.navLink:nth-child(5),.navLink:nth-child(6) {
+.navLink:nth-child(6),.navLink:nth-child(7) {
 	top: 229px;
-	top: 187px;
+	// top: 187px;
 }
-.navLink:nth-child(7),.navLink:nth-child(8)  {
-	top: 271px;
+// .navLink:nth-child(8),.navLink:nth-child(9)  {
+// 	top: 271px;
+// 	// top: 229px;
+// }
+.navLink:nth-child(12), .navLink:nth-child(13)  {
+	
 	top: 229px;
-}
-.navLink:nth-child(7),.navLink:nth-child(10)  {
-	top: 271px;
-	top: 229px;
+	// top:313px;
 }
 
-.navLink:nth-child(9),.navLink:nth-child(12)  {
-	top:313px;
-	top: 187px;
-}
-.navLink:nth-child(11),.navLink:nth-child(14)  {
-	top:355px;
-	top: 229px;
-}
-.navLink:nth-child(13),.navLink:nth-child(16)  {
-	top:397px;
+.navLink:nth-child(14), .navLink:nth-child(15)  {
+	
 	top: 271px;
 }
-.navLink:nth-child(15),.navLink:nth-child(18)  {
-	top:439px;
+.navLink:nth-child(16),.navLink:nth-child(17)  {
+	
 	top:313px;
 }
-.navLink:nth-child(17),.navLink:nth-child(20)  {
-	top:481px;
+.navLink:nth-child(18),.navLink:nth-child(19)  {
+	
 	top:355px;
 }
-.navLink:nth-child(19),.navLink:nth-child(22)  {
-	top:523px;
+.navLink:nth-child(20),.navLink:nth-child(21)  {
+	
 	top:397px;
 }
-.navLink:nth-child(21),.navLink:nth-child(24)  {
+.navLink:nth-child(22),.navLink:nth-child(23)  {
+	
+	top:439px;
+}
+.navLink:nth-child(24),.navLink:nth-child(25)  {
+	
+	top:481px;
+}
+.navLink:nth-child(26),.navLink:nth-child(27)  {
+	top:607px;
+	top:523px;
+}
+.navLink:nth-child(29)  {
+	top:649px;
 	top:565px;
 }
-.navLink:nth-child(23),.navLink:nth-child(26)  {
-	top:607px;
+
+//loaders
+
+.lds-roller {
+  // display: inline-block;
+  // position: relative;
+  width: 80px;
+  height: 40vh;
+  margin: 0 auto;
 }
-.navLink:nth-child(25) ,.navLink:nth-child(28) {
-	top:649px;
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
 }
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #eb5858;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+//
+
 
 .artistsmain {
 	margin-top: 30vh;
@@ -438,14 +529,14 @@ main {
 .languageChoiceEach {
 	position: fixed;
 	bottom: 3vh;
-	right: 40px;
+	right: 30px;
 	cursor: pointer;
 }
 
 .fontColour {
 	color: white;
 }
-.languageChoiceEach:nth-child(2) {
+.languageChoiceEach:nth-child(3) {
 		right: 70px;
 		border-right: 1px solid black;
 		padding: 0 10px 
@@ -548,16 +639,17 @@ main {
 	margin: 20vh auto;
 	max-width: 750px;
 
+
 	 #my-video {
 	 	position: relative;
-	 	    overflow: hidden;
-	 	    max-width: 100%;
-	 	    height: auto;
+	 	overflow: hidden;
+	 	max-width: 100%;
+	 	// height: auto;
 	 }
 	 
 	video {
-		width: 100%;
-		height: auto;
+		// width: 100%;
+		// height: auto;
 	}
 }
 .vjs-control-bar {

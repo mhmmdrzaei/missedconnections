@@ -182,7 +182,8 @@ $(function(){
 
 //languages options
 
-$('.languageChoiceContent:nth-child(3)').addClass('visible');
+$('.languageChoiceContent:nth-child(4)').addClass('visible');
+$('.lds-roller').hide();
 
 
  $(".languageChoiceEach").click(function() {
