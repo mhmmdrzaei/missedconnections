@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main class="artistsmain">
+<main class="artistsmain" aria-label="the artist content filled out in the page">
   <section class="blob">
     <img src="<?php bloginfo('template_directory'); ?>/images/menuitems.png" alt="Navigation menu for page">
    
@@ -8,7 +8,7 @@
   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
   <?php if( get_field('language_options') == 'Single Language' ) {; ?>
     <a href="#description" class="navLink">Description</a>
-    <section class="openingTitle" id="description">
+    <section class="openingTitle" id="description" aria-label="Artist name, an artist avatar designed specifically for this project and a breif description">
       <figure>
         <?php the_post_thumbnail('large');?>
       </figure>
@@ -25,7 +25,7 @@
           <?php if( get_row_layout() == 'single_large_image_with_description' ): ?>
             <?php if( have_rows('image_with_description_containter') ): ?>
                 <?php while( have_rows('image_with_description_containter') ): the_row(); ?>
-                  <section class="single_large_image_desc" id="singleImage">
+                  <section class="single_large_image_desc" id="singleImage" aria-label="an image with a title">
                     <figure class="gs_reveal gs_reveal_fromLeft">
                       <?php 
                       $image = get_sub_field('image_file_imagewText');
@@ -33,7 +33,7 @@
                           <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                       <?php endif; ?>
                     </figure>
-                    <section class="single_large_desc gs_reveal">
+                    <section class="single_large_desc gs_reveal" aria-label="accompanying image title">
                       <?php the_sub_field('image_text_information_image_with_text'); ?>
                     </section>
                   </section>
@@ -43,7 +43,7 @@
           <?php elseif( get_row_layout() == 'pdf_reader' ): ?>
             <?php if( have_rows('pdf_reader_container') ): ?>
                 <?php while( have_rows('pdf_reader_container') ): the_row(); ?>
-                  <section class="pdfReaderContainer" id="pdfItem">
+                  <section class="pdfReaderContainer" id="pdfItem" aria-label="a pdf file embedded onto the page with the option to be downloaded below">
                     <section class="pdfReaderInformation gs_reveal gs_reveal_fromLeft">
                       <h1><?php the_sub_field('pdf_title'); ?></h1>
                       <h2><?php the_sub_field('pdf_subtitle'); ?></h2>
@@ -91,12 +91,12 @@
             <?php endif; ?> 
 
           <?php elseif( get_row_layout() == 'videos_sections' ): ?> 
-            <section class="videoRepContainer" id="videos">
+            <section class="videoRepContainer" id="videos" aria-label="section with embedded videos">
             <?php if( have_rows('video_repeater_container') ): ?>
                 <?php while( have_rows('video_repeater_container') ): the_row(); ?>
                 
                     <section class="videoContainerEach">
-                      <section class="videoInformation gs_reveal gs_reveal_fromLeft">
+                      <section class="videoInformation gs_reveal gs_reveal_fromLeft" aria-label="information about the video">
                         <h2><?php the_sub_field('video_title') ?></h2>
                         <p><?php the_sub_field('video_description') ?></p>
                       </section>
@@ -120,7 +120,7 @@
                         <?php the_sub_field('embedded_content_link') ?>
                       </section>
                       </section>
-                      <section class="embeddedInformation gs_reveal">
+                      <section class="embeddedInformation gs_reveal" aria-label="information about the embedded content">
                         <h2><?php the_sub_field('embedded_content_title') ?></h2>
                         <p><?php the_sub_field('embedded_content_description') ?></p>
                       </section>
@@ -131,13 +131,13 @@
 
           <?php elseif( get_row_layout() == 'readings' ): ?> 
             <a href="#readings" class="navLink">Pedagogical Readings</a>
-            <section class="readingsContainer" id="readings">
+            <section class="readingsContainer" id="readings" aria-label="Pedagogical Readings container">
               <h2 class="gs_reveal gs_reveal_fromLeft">Pedagogical Readings</h2>
               <section class="readingsEachContainer gs_reveal">
             <?php if( have_rows('readings_repeater_container') ): ?>
                 <?php while( have_rows('readings_repeater_container') ): the_row(); ?>
                     
-                      <section class="readingsEach">
+                      <section class="readingsEach" aria-label="a reading pdf file with title of the pdf mentioned">
                         <h4><?php the_sub_field('reading_author'); ?></h4>
                         <section class="pdftitleLink">
                           <a href="<?php the_sub_field('reading_file') ?>" target="_blank"><?php the_sub_field('reading_title') ?> <i class="fa-solid fa-file-pdf"></i></a>
@@ -151,7 +151,7 @@
              </section>
           <?php elseif( get_row_layout() == 'tagged_events' ): ?> 
             <a href="#events" class="navLink"><?php the_sub_field('event_title'); ?></a>
-            <section class="taggedEventContainer" id="events">
+            <section class="taggedEventContainer" id="events" aria-label="events associated with project">
               <h2 class="gs_reveal gs_reveal_fromLeft"><?php the_sub_field('event_title'); ?></h2>
               <section class="taggedEventEachContainer gs_reveal">
             <?php if( have_rows('tagged_event_repeater_container') ): ?>
@@ -165,7 +165,7 @@
                               setup_postdata($post);
                            ?>
                           <section class="taggedEventEach">
-                           <section class="eventDate">
+                           <section class="eventDate" aria-label="event date">
                              <?php 
                                  $startDate = get_field('event_date_start');
                                  $endDate = get_field('event_date_end');
@@ -175,7 +175,7 @@
                                   <?php the_field('event_date_start');?></br>
                                  <?php endif; ?>
                            </section>
-                           <section class="eventTitletitle">
+                           <section class="eventTitletitle" aria-label="title of the event">
                              <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
                                <?php the_title(); ?>
                              </a>
@@ -200,7 +200,7 @@
 
 
           <?php elseif( get_row_layout() == 'full_width_text' ): ?> 
-            <section class="textFullWidth gs_reveal">
+            <section class="textFullWidth gs_reveal" aria-label="long form text">
               <?php the_sub_field('full_width_text_content'); ?>
             </section>
 
@@ -214,16 +214,16 @@
             </figure>
 
           <?php elseif( get_row_layout() == 'full_width_video_upload' ): ?> 
-             <section class="htmlvideoContainer gs_reveal">
+             <section class="htmlvideoContainer gs_reveal" aria-label="video with play button, with no other controls">
               <video
                   id="my-video"
-                  class="video-js medium  vjs-layout-medium"
+                  class="video-js medium  vjs-layout-medium vjs-16-9"
                   preload="auto"
                   controls="play"
                   width="750"
                   height="422"
                   poster="<?php the_sub_field('placeholder_image') ?>"
-                  data-setup="{}"
+                  data-setup="{'fluid': true}"
                 >
                   <source src="<?php the_sub_field('uploaded_video_file'); ?>" type="video/mp4" />
                   <p class="vjs-no-js">
@@ -260,7 +260,7 @@
 
           <?php elseif( get_row_layout() == 'contributors_list' ): ?> 
             <a href="#contributors" class="navLink"><?php the_sub_field('contributors_label'); ?></a>
-              <section class="contributorsContainer" id="contributors">
+              <section class="contributorsContainer" id="contributors" aria-label="list of people involved in creating this project">
                 <section class="contributorsTitle gs_reveal gs_reveal_fromLeft">
                   <h2 class=""><?php the_sub_field('contributors_label'); ?></h2>
                 </section>
@@ -293,13 +293,13 @@
             <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     <?php if( have_rows('multi_language_fields') ): ?>
         <?php while( have_rows('multi_language_fields') ): the_row(); ?>
-       <section class="languageChoiceEach">
+       <section class="languageChoiceEach" aria-label="navigating this link will switch the language of the page" >
          <?php the_sub_field('language_label'); ?>
        </section>
   <section class="languageChoiceContent">
 
          <a href="#description" class="navLink">Description</a>
-        <section class="openingTitle" id="description">
+        <section class="openingTitle" id="description" aria-label="brief description of the artist, an avatar created for the artist and a brief description of the work">
           <figure>
             <?php the_post_thumbnail('large');?>
           </figure>
@@ -336,7 +336,7 @@
               <?php elseif( get_row_layout() == 'pdf_reader' ): ?>
                 <?php if( have_rows('pdf_reader_container') ): ?>
                     <?php while( have_rows('pdf_reader_container') ): the_row(); ?>
-                      <section class="pdfReaderContainer" id="pdfItem">
+                      <section class="pdfReaderContainer" id="pdfItem" aria-label="a pdf embedded on to the page, with the option to be downloaded as a file">
                         <section class="pdfReaderInformation gs_reveal gs_reveal_fromLeft">
                           <h1><?php the_sub_field('pdf_title'); ?></h1>
                           <h2><?php the_sub_field('pdf_subtitle'); ?></h2>
@@ -421,13 +421,13 @@
                 <?php endif; ?> 
 
               <?php elseif( get_row_layout() == 'readings' ): ?> 
-                <section class="readingsContainer" id="readings">
+                <section class="readingsContainer" id="readings" aria-label="Pedagogical Readings">
                   <h2 class="gs_reveal gs_reveal_fromLeft">Pedagogical Readings</h2>
                   <section class="readingsEachContainer gs_reveal">
                 <?php if( have_rows('readings_repeater_container') ): ?>
                     <?php while( have_rows('readings_repeater_container') ): the_row(); ?>
 
-                          <section class="readingsEach">
+                          <section class="readingsEach" aria-label="reading pdf with the writer of the work, the title of the work and file to be downloaded">
                             <h4><?php the_sub_field('reading_author'); ?></h4>
                             <section class="pdftitleLink">
                                <a href="<?php the_sub_field('reading_file') ?>" target="_blank"><?php the_sub_field('reading_title') ?> <i class="fa-solid fa-file-pdf"></i></a>
@@ -444,7 +444,7 @@
                  </section>
               <?php elseif( get_row_layout() == 'tagged_events' ): ?> 
                 <a href="#events" class="navLink"><?php the_sub_field('events_title'); ?></a>
-                 <section class="taggedEventContainer" id="events">
+                 <section class="taggedEventContainer" id="events" aria-label="a list of events associated with the project">
               <h2 class="gs_reveal gs_reveal_fromLeft"><?php the_sub_field('events_title'); ?></h2>
               <section class="taggedEventEachContainer gs_reveal">
             <?php if( have_rows('tagged_event_repeater_container') ): ?>
@@ -511,7 +511,7 @@
 
                 <?php elseif( get_row_layout() == 'contributors_list' ): ?> 
                   <a href="#contributors" class="navLink"><?php the_sub_field('contributors_label'); ?></a>
-                  <section class="contributorsContainer" id="contributors">
+                  <section class="contributorsContainer" id="contributors" aria-label="a list of people involved in the project">
                     <section class="contributorsTitle">
                       <h2 class="gs_reveal gs_reveal_fromLeft"><?php the_sub_field('contributors_label'); ?></h2>
                     </section>

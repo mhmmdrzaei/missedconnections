@@ -2,7 +2,7 @@
 <main class="pageGetInTouch gs_reveal gs_reveal_fromLeft">
    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
   <h1><?php the_title(); ?></h1>
-  <section class="pageContent ">
+  <section class="pageContent " aria-label="details on how to get in touch">
     <?php the_content(); ?>
   </section>
    <?php endwhile; // end the loop?>

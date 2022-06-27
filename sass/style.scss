@@ -220,6 +220,9 @@ main {
 .pageCitations {
 	padding: 0 100px;
 }
+.citationText {
+	margin-top: 20vh;
+}
 //homepage
 .homepageText {
 	@include fontSize(20);

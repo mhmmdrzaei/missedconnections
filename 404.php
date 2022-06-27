@@ -1,12 +1,18 @@
 <?php get_header(); ?>
-<main>
-    <div class="container">
-
+<main class="singlePage">
+    
+    <section class="pageContent gs_reveal gs_reveal_fromRight">
     <h1>Not Found</h1>
-    <p>Apologies, but the page you requested could not be found.</p>
-    <?php get_search_form(); ?>
+    <br>
+    <br>
+    <br>
+    <br>
 
-  </div>
+    <p>Apologies, but the page you requested could not be found.</p>
+  
+    </section>
+
+
 </main>
 
 <?php get_footer(); ?>
