@@ -12,6 +12,7 @@
             <h4>Colophon</h4>
             <?php the_field('colophone', 'option'); ?>
              <p>&copy; <?php echo date('Y'); ?> SAVAC <br>All Rights Reserved</p>
+             <img src="<?php bloginfo('template_directory'); ?>/images/oaclogo.png" alt="Ontario Arts Council Funder logo">
 
         </section>
         <section class="landAck" aria-label="Organization Provided Land Acknowledgement">

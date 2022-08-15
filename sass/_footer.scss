@@ -17,13 +17,16 @@ footer {
 	justify-content:space-between;
 	padding: 50px 6%;
 	.savacAddress {
-		width: 10%;
+		width: 15%;
+		a {
+			display: block;
+		}
 	}
 	.colophon {
-		width: 12%;
+		width: 20%;
 	}
 	.landAck {
-		width:45%;
+		width:42%;
 	}
 	.btn-info {
 		background: transparent;
