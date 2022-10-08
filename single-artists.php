@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <main class="artistsmain" aria-label="the artist content filled out in the page">
-  <section class="blob">
+<!--   <section class="blob">
     <img src="<?php bloginfo('template_directory'); ?>/images/menuitems.png" alt="Navigation menu for page">
-   
+ -->   
 
   </section>
   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -89,6 +89,38 @@
                   </section>
                 <?php endwhile; ?>
             <?php endif; ?> 
+
+          <?php elseif( get_row_layout() == 'two_column_text' ): ?>
+            <section class="twoColumnText gs_reveal gs_reveal_fromLeft" >
+            <?php if( have_rows('column_details') ): ?>
+                <?php while( have_rows('column_details') ): the_row(); ?>
+                <?php $columnWidth = get_sub_field('column_widths');
+                if( $columnWidth == '20% / 80%' ) { ?>
+                  <section class="twoColumn">
+                    <div class="twenty">
+                      <?php the_sub_field('left_column'); ?>
+                    </div>
+                    <div class="eighty">
+                      <?php the_sub_field('right_column'); ?>
+                    </div>
+                  </section>  
+                <?php } ?> 
+
+                <?php if( $columnWidth == '50 % / 50%' ) { ?>
+                  <section class="twoColumn twoColumnFifty">
+                    <div class="fifty">
+                      <?php the_sub_field('left_column'); ?>
+                    </div>
+                    <div class="fifty">
+                      <?php the_sub_field('right_column'); ?>
+                    </div>
+                  </section>  
+                <?php } ?>  
+            
+                  
+                <?php endwhile; ?>
+            <?php endif; ?> 
+            </section>
 
           <?php elseif( get_row_layout() == 'videos_sections' ): ?> 
             <section class="videoRepContainer" id="videos" aria-label="section with embedded videos">

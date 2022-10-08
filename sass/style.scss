@@ -63,6 +63,7 @@ body {
 	background: #EEE9D9;
 	font-family: 'Elliot Sans', sans-serif;
 	font-size:14px;
+	line-height: 1.5;
 }
 h1,h2,h3,h4,h5,h6,b {
 font-family: 'Elliot Sans Bold', sans-serif;
@@ -347,6 +348,24 @@ main {
 }
 
 //artist page 
+.twoColumn {
+	@extend .flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	.twenty {
+		width: 15%;
+	}
+	.eighty {
+		width: 82%;
+	}
+	.fifty {
+		width: 49%;
+	}
+}
+.twoColumnFifty {
+	background: white;
+	padding: 10px 20px;
+}
 
 
 .blob {
