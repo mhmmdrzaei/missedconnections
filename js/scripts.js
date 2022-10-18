@@ -182,7 +182,7 @@ $(function(){
 
 //languages options
 
-$('.languageChoiceContent:nth-child(4)').addClass('visible');
+$('.languageChoiceContent:nth-child(3)').addClass('visible');
 $('.lds-roller').hide();
 
 
@@ -379,10 +379,10 @@ function animateFrom(elem, direction) {
   var x = 0,
       y = direction * 100;
   if(elem.classList.contains("gs_reveal_fromLeft")) {
-    x = -200;
+    x = -50;
     y = 0;
   } else if (elem.classList.contains("gs_reveal_fromRight")) {
-    x = 200;
+    x = 50;
     y = 0;
 
   } 

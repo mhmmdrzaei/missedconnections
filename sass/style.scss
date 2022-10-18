@@ -62,7 +62,7 @@ img {
 body {
 	background: #EEE9D9;
 	font-family: 'Elliot Sans', sans-serif;
-	font-size:14px;
+	@include fontSize(9);
 	line-height: 1.5;
 }
 h1,h2,h3,h4,h5,h6,b {
@@ -363,8 +363,10 @@ main {
 	}
 }
 .twoColumnFifty {
-	background: white;
-	padding: 10px 20px;
+	 	max-width: 750px;
+    margin: 20vh auto;
+    background: rgba(255,255,255, 0.3);
+    padding: 60px 50px;
 }
 
 
@@ -558,7 +560,7 @@ main {
 .fontColour {
 	color: white;
 }
-.languageChoiceEach:nth-child(3) {
+.languageChoiceEach:nth-child(2) {
 		right: 70px;
 		border-right: 1px solid black;
 		padding: 0 10px 
@@ -686,6 +688,9 @@ main {
 		width: 100%;
 		// max-width: 700px;
 		text-align: center;
+	}
+	span {
+		padding: 5px 0;
 	}
 }
 
