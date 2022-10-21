@@ -352,6 +352,8 @@ main {
 	@extend .flex;
 	justify-content: space-between;
 	margin-bottom: 10px;
+		 	max-width: 750px;
+	    margin: 0 auto;
 	.twenty {
 		width: 15%;
 	}
@@ -363,9 +365,9 @@ main {
 	}
 }
 .twoColumnFifty {
-	 	max-width: 750px;
+	 	// max-width: 750px;
     margin: 20vh auto;
-    background: rgba(255,255,255, 0.3);
+    background: rgba(255,255,255, 0.2);
     padding: 60px 50px;
 }
 
@@ -1048,6 +1050,11 @@ main {
 .artistMap,.textFullWidth,.fullwidthImg , .htmlvideoContainer{
 	margin: 8vh auto;
 	display: block;
+}
+.textFullWidth {
+	p {
+		padding-left: 0 !important;
+	}
 }
 .ctaButton {
 	width: 100%;
