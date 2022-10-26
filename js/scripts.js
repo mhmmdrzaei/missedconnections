@@ -379,10 +379,10 @@ function animateFrom(elem, direction) {
   var x = 0,
       y = direction * 100;
   if(elem.classList.contains("gs_reveal_fromLeft")) {
-    x = -50;
+    x = -300;
     y = 0;
   } else if (elem.classList.contains("gs_reveal_fromRight")) {
-    x = 50;
+    x = 300;
     y = 0;
 
   } 
