@@ -122,6 +122,28 @@
             <?php endif; ?> 
             </section>
 
+          <?php elseif( get_row_layout() == 'zig_zag_text' ): ?>
+            <section class="zigZagTexts" >
+            <?php if( have_rows('zig_zag_fields_container') ): ?>
+                <?php while( have_rows('zig_zag_fields_container') ): the_row(); ?>
+                <?php $zigWidth = get_sub_field('left_align_or_right_align');
+                if( $zigWidth == 'Left Align' ) { ?>
+                  <section class="leftAlignZig gs_reveal gs_reveal_fromLeft">
+                      <?php the_sub_field('zig_zag_text'); ?>
+                  </section>  
+                <?php } ?> 
+                <?php if( $zigWidth == 'Right Align' ) { ?>
+                  <section class="rightAlignZig gs_reveal gs_reveal_fromRight">
+              
+                      <?php the_sub_field('zig_zag_text'); ?>
+                  </section>  
+                <?php } ?>  
+            
+                  
+                <?php endwhile; ?>
+            <?php endif; ?> 
+            </section>
+
           <?php elseif( get_row_layout() == 'videos_sections' ): ?> 
             <section class="videoRepContainer" id="videos" aria-label="section with embedded videos">
             <?php if( have_rows('video_repeater_container') ): ?>

@@ -1,5 +1,5 @@
 $(function(){
-
+console.log('fessda');  
 
 	if ($(window).width() > 775) {
 

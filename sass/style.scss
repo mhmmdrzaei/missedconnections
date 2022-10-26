@@ -48,7 +48,7 @@ Default Styling
 
 @mixin fontSize($sizeValue){
     font-size: $sizeValue * 1px;
-    font-size: ($sizeValue/10) * 1rem;
+    font-size: calc($sizeValue / 10) * 1rem;
 }
 
 
@@ -61,6 +61,7 @@ img {
 // }
 body {
 	background: #EEE9D9;
+	
 	font-family: 'Elliot Sans', sans-serif;
 	@include fontSize(9);
 	line-height: 1.5;
@@ -348,6 +349,18 @@ main {
 }
 
 //artist page 
+.zigZagTexts {
+	 margin: 20vh auto;
+	.rightAlignZig {
+		width: 49%;
+		margin-left: 50%;
+		margin-top: 50px;
+	}
+	.leftAlignZig {
+		width: 49%;
+		margin-top: 50px;
+	}
+}
 .twoColumn {
 	@extend .flex;
 	justify-content: space-between;
@@ -961,6 +974,22 @@ main {
 	width: auto;
 }
 //artists
+.zigZagTexts {
+	.rightAlignZig {
+		width: 100%;
+		margin-left: 0;
+	}
+	.leftAlignZig {
+		width: 100%;
+
+	}
+}
+
+.twoColumn {
+	.fifty,.twenty,.eighty {
+		width: 100%;
+	}
+} 
 .artistsmain {
 	 margin-top: 18vh;
 }
