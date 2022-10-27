@@ -123,17 +123,17 @@
             </section>
 
           <?php elseif( get_row_layout() == 'zig_zag_text' ): ?>
-            <section class="zigZagTexts" >
+            <section class="zigZagTexts gs_reveal" >
             <?php if( have_rows('zig_zag_fields_container') ): ?>
                 <?php while( have_rows('zig_zag_fields_container') ): the_row(); ?>
                 <?php $zigWidth = get_sub_field('left_align_or_right_align');
                 if( $zigWidth == 'Left Align' ) { ?>
-                  <section class="leftAlignZig gs_reveal gs_reveal_fromLeft">
+                  <section class="leftAlignZig ">
                       <?php the_sub_field('zig_zag_text'); ?>
                   </section>  
                 <?php } ?> 
                 <?php if( $zigWidth == 'Right Align' ) { ?>
-                  <section class="rightAlignZig gs_reveal gs_reveal_fromRight">
+                  <section class="rightAlignZig">
               
                       <?php the_sub_field('zig_zag_text'); ?>
                   </section>  
@@ -259,7 +259,7 @@
             </section>
 
           <?php elseif( get_row_layout() == 'full_width_image' ): ?> 
-            <figure class="fullwidthImg gs_reveal">
+            <figure class="fullwidthImg ">
               <?php 
               $imagesFull = get_sub_field('full_width_image_selection');
               if( $imagesFull ): ?>
@@ -269,7 +269,7 @@
             </figure>
 
           <?php elseif( get_row_layout() == 'full_width_video_upload' ): ?> 
-             <section class="htmlvideoContainer gs_reveal" aria-label="video with play button, with no other controls">
+             <section class="htmlvideoContainer" aria-label="video with play button, with no other controls">
               <video
                   id="my-video"
                   class="video-js medium  vjs-layout-medium vjs-16-9"

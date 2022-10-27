@@ -66,7 +66,7 @@ body {
 	@include fontSize(9);
 	line-height: 1.5;
 }
-h1,h2,h3,h4,h5,h6,b {
+h1,h2,h3,h4,h5,h6,b, strong {
 font-family: 'Elliot Sans Bold', sans-serif;
 margin: 0;
 }
@@ -122,6 +122,16 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
+}
+.postid-64 {
+	.embeddedContainer .videoOuter {
+		width: 100%;
+		margin: 0 auto;
+		max-width: 750px;
+		.videoContainer iframe {
+			width: 750px !important;
+		}
+	}
 }
 
 //svgs
@@ -211,9 +221,16 @@ main {
 	}
 	.videoContainer, .pdfHolder {
 		width: 75%;
+
 	}
 	.scene__figureCite {
 		width: 75%;
+		a {
+			background: #eee9d9;
+			padding: 5px;
+			// max-width: 353px;
+			// display: block;
+		}
 	}
 }
 .titleOut {
@@ -351,14 +368,23 @@ main {
 //artist page 
 .zigZagTexts {
 	 margin: 20vh auto;
+	 max-width: 750px;
+
 	.rightAlignZig {
 		width: 49%;
 		margin-left: 50%;
 		margin-top: 50px;
+		p {
+			text-align: justify;	
+		}
 	}
 	.leftAlignZig {
 		width: 49%;
 		margin-top: 50px;
+		p {
+			text-align: justify;	
+		}
+		
 	}
 }
 .twoColumn {
@@ -374,14 +400,19 @@ main {
 		width: 82%;
 	}
 	.fifty {
-		width: 49%;
+		width: 43%;
+	}
+	.fifty:nth-child(1) {
+		@include fontSize(7);
+		width: 53%;
+		line-height: 1.7;
 	}
 }
 .twoColumnFifty {
 	 	// max-width: 750px;
     margin: 20vh auto;
     background: rgba(255,255,255, 0.2);
-    padding: 60px 50px;
+    padding: 60px 28px;
 }
 
 
@@ -708,6 +739,9 @@ main {
 		padding: 5px 0;
 	}
 }
+.postid-65 .fullwidthImg {
+	margin: 10vh auto;
+}
 
 .readingsContainer {
 	@extend .flex;
@@ -975,9 +1009,11 @@ main {
 }
 //artists
 .zigZagTexts {
+
 	.rightAlignZig {
 		width: 100%;
 		margin-left: 0;
+
 	}
 	.leftAlignZig {
 		width: 100%;
@@ -1077,7 +1113,7 @@ main {
 
 }
 .artistMap,.textFullWidth,.fullwidthImg , .htmlvideoContainer{
-	margin: 8vh auto;
+	margin: 20vh auto;
 	display: block;
 }
 .textFullWidth {

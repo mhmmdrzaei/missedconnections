@@ -379,10 +379,10 @@ function animateFrom(elem, direction) {
   var x = 0,
       y = direction * 100;
   if(elem.classList.contains("gs_reveal_fromLeft")) {
-    x = -300;
+    x = -100;
     y = 0;
   } else if (elem.classList.contains("gs_reveal_fromRight")) {
-    x = 300;
+    x = 100;
     y = 0;
 
   } 
@@ -432,9 +432,9 @@ document.addEventListener("DOMContentLoaded", function() {
     
     ScrollTrigger.create({
       trigger: elem,
-      onEnter: function() { animateFrom(elem) }, 
+      onEnter: function() { animateFrom(elem, -3) }, 
       onEnterBack: function() { animateFrom(elem, -1) },
-      onLeave: function() { hide(elem) } // assure that the element is hidden when scrolled into view
+      onLeave: function() { hide(elem, -1) } // assure that the element is hidden when scrolled into view
     });
   });
 });
@@ -451,7 +451,7 @@ if ($(window).width() > 775) {
 const scenes = gsap.utils.toArray('.scene');
 
 // maybe use dymanic height for pin/scroll ends?
-const height = ((scenes.length - 1) * 200) + '%';
+const height = ((scenes.length - 1) * 400) + '%';
 
 // Scenes Timeline
 const pinTl = gsap.timeline({
