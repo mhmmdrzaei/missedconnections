@@ -3,11 +3,14 @@
 
   <section class="citationText" aria-label="introduction text explaining the citations section of the site">
     <?php the_content(); ?>
+    <a href="#citationssID" class="citationsdown">
+    <div class="arrowDown"></div>
+    </a>
   </section>
 
   <section class=" scenes">
     <section class="scenes__wrap">
-      <div class="scenes__items">
+      <div class="scenes__items" id="citationssID">
 
 
         <?php // Start the loop ?>
@@ -55,16 +58,18 @@
             <?php if( have_rows('image_with_link_citations' ) ): ?>
                 <?php while( have_rows('image_with_link_citations') ): the_row(); ?>
                   
-                  <a href="<?php the_sub_field('link_img',) ;?>" target="_blank">
+                  
                     <section class="citationsInner scene">
                     <?php 
                     $image = get_sub_field('image_imgwLink');
                     if( !empty( $image ) ): ?>
+                      <a href="<?php the_sub_field('link_img',) ;?>" target="_blank">
                       <figure class="scene__figureCite" aria-label="image accompanying link">
                         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                       </figure>
-
+                      <a href="<?php the_sub_field('link_img',) ;?>" target="_blank">
                     <?php endif; ?>
+
                     <h2 class="postTitle scene__headerCite"><?php the_title(); ?></h2>
                     </section>
                   </a>
@@ -74,30 +79,26 @@
           </article>
         <?php } ?>
         <?php if( get_field('content_option_citations') == 'pdfFile' ) {; ?>
-          <article id="post-<?php the_ID(); ?>" class="citationsPost" aria-label="citations item container">
-            <section class="citationsInner scene">
-              <section class="pdfHolder scene__figureCite" aria-label="pdf file embedded onto the page with the option to be downloaded as a file">
-                <object
-                  data='<?php the_field('pdf_file');?>'
-                  type="application/pdf"
-                  width="350"
-                  height="450"
-                >
+          <article id="post-<?php the_ID(); ?> " class="citationsPost" aria-label="pdf file embedded onto the page with the option to be downloaded as a file">
+            <?php if( have_rows('pdf_file_container' ) ): ?>
+                <?php while( have_rows('pdf_file_container') ): the_row(); ?>
+                  
+                    <section class="citationsInner scene">
+                    <?php 
+                    $imagepdf = get_sub_field('pdf_cover_image');
+                    if( !empty( $imagepdf ) ): ?>
+                      <a href="<?php the_sub_field('pdf_file');?>" target="_blank">
+                      <figure class="scene__figureCite" aria-label="cover image for pdf file: <?php the_title(); ?> ">
+                        <img src="<?php echo esc_url($imagepdf['url']); ?>" alt="<?php echo esc_attr($imagepdf['alt']); ?>" />
+                      </figure>
+                      </a>
 
-                  <iframe
-                    src='<?php the_field('pdf_file');?>'
-                    width="350"
-                    height="450"
-                  >
-                  <p>This browser does not support PDF!</p>
-                  </iframe>
-
-                </object>
-                <br>
-                  <a href="<?php the_field('pdf_file');?>" target="_blank"><?php the_title(); ?> <i class="fa-solid fa-file-pdf"></i></a>
-              </section>
-               <h2 class="postTitle scene__headerCite"><?php the_title(); ?></h2>
-            </section>
+                    <?php endif; ?>
+                    <h2 class="postTitle scene__headerCite"> <a href="<?php the_sub_field('pdf_file');?>" target="_blank"><?php the_title(); ?> <i class="fa-solid fa-file-pdf"></i></a></h2>
+                    </section>
+                
+                 <?php endwhile; ?>
+               <?php endif; ?>   
            
               
           </article>

@@ -263,7 +263,7 @@
               <?php 
               $imagesFull = get_sub_field('full_width_image_selection');
               if( $imagesFull ): ?>
-                  <img loading="lazy" src="<?php echo esc_url($imagesFull['url']); ?>" alt="<?php echo esc_attr($imagesFull['alt']); ?>">
+                  <img  src="<?php echo esc_url($imagesFull['url']); ?>" alt="<?php echo esc_attr($imagesFull['alt']); ?>">
                   <span><?php echo esc_attr($imagesFull['caption']); ?></span>
               <?php endif; ?>
             </figure>

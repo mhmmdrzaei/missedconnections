@@ -412,11 +412,15 @@ function animateFrom(elem, direction) {
     duration: 2.25, 
     x: 0,
     y: 0, 
+    start: "top top", // when the top of the trigger hits the top of the viewport
+    end: "-=10",
+    pin: true,   // pin the trigger element while active
+    scrub: 1,
     autoAlpha: 1, 
     // ease: "expo", 
     overwrite: "auto",
     ease: "power2",
-    stagger: 0.3
+    stagger: 0.6
   });
 }
 
@@ -432,7 +436,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     ScrollTrigger.create({
       trigger: elem,
-      onEnter: function() { animateFrom(elem, -3) }, 
+      onEnter: function() { animateFrom(elem, -1) }, 
       onEnterBack: function() { animateFrom(elem, -1) },
       onLeave: function() { hide(elem, -1) } // assure that the element is hidden when scrolled into view
     });

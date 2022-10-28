@@ -83,7 +83,7 @@ function project_scripts() {
 
     wp_enqueue_script(
     	'gsap',
-    	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://unpkg.co/gsap@3/dist/gsap.min.js",
+    	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js",
     	false, //dependencies
     	null, //version number
     	true //load in footer
@@ -107,7 +107,7 @@ function project_scripts() {
 
     wp_enqueue_script(
     	'scrollTrigger',
-    	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://unpkg.com/gsap@3/dist/ScrollTrigger.min.js",
+    	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js",
     	false, //dependencies
     	null, //version number
     	true //load in footer
