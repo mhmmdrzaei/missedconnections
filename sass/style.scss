@@ -1027,8 +1027,22 @@ main {
 }
 
 .twoColumn {
-	.fifty,.twenty,.eighty {
+	.fifty:nth-child(1), .fifty,.twenty,.eighty {
 		width: 100%;
+	}
+	.fifty:nth-child(1) {
+		order: 1;
+	}
+	.leftcolName, .rightcolName {
+		width: 100%;
+	}
+	.rightcolName {
+		direction: rtl;
+	}
+
+
+	.leftcolName{
+		order:2;
 	}
 } 
 .artistsmain {

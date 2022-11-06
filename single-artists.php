@@ -110,10 +110,14 @@
                   <section class="twoColumn twoColumnFifty">
                     <div class="fifty">
                       <?php the_sub_field('left_column'); ?>
+
                     </div>
                     <div class="fifty">
                       <?php the_sub_field('right_column'); ?>
+                       
                     </div>
+                    <strong class="leftcolName"><?php the_sub_field('left_column_name'); ?></strong>
+                      <strong class="rightcolName"><?php the_sub_field('right_column_name'); ?></strong>
                   </section>  
                 <?php } ?>  
             
