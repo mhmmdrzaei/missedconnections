@@ -274,6 +274,7 @@
 
           <?php elseif( get_row_layout() == 'full_width_video_upload' ): ?> 
              <section class="htmlvideoContainer" aria-label="video with play button, with no other controls">
+              <?php $videoFile = get_sub_field('uploaded_video_file') ?>
               <video
                   id="my-video"
                   class="video-js medium  vjs-layout-medium vjs-16-9"
@@ -284,7 +285,7 @@
                   poster="<?php the_sub_field('placeholder_image') ?>"
                   data-setup="{'fluid': true}"
                 >
-                  <source src="<?php the_sub_field('uploaded_video_file'); ?>" type="video/mp4" />
+                  <source src="<?php echo esc_html($videoFile['url']) ?>" type="video/mp4" />
                   <p class="vjs-no-js">
                     To view this video please enable JavaScript, and consider upgrading to a
                     web browser that
@@ -293,6 +294,7 @@
                     >
                   </p>
                 </video>
+                 <p><?php echo esc_html($videoFile['caption']); ?></p>
             </section>
 
           <?php elseif( get_row_layout() == 'google_map_points' ): ?> 

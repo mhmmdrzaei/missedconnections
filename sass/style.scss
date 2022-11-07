@@ -507,6 +507,7 @@ main {
 	top:565px;
 }
 
+
 //loaders
 
 .lds-roller {
@@ -744,8 +745,11 @@ main {
 		padding: 5px 0;
 	}
 }
-.postid-65 .fullwidthImg {
-	margin: 10vh auto;
+.postid-65 {
+	.fullwidthImg,.htmlvideoContainer {
+	margin: 8vh auto;
+	}
+	
 }
 
 .readingsContainer {
