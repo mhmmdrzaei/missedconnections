@@ -66,13 +66,6 @@ function project_scripts() {
   	true //load in footer
   );
 
-  wp_enqueue_script(
-  	'infoBubble',
-  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobubble/src/infobubble.js",
-  	false, //dependencies
-  	null, //version number
-  	true //load in footer
-  );
     wp_enqueue_script(
   	'vjs',
   	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://vjs.zencdn.net/7.19.2/video.min.js",
@@ -91,13 +84,6 @@ function project_scripts() {
     wp_enqueue_script(
     	'smoothscroll',
     	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.5.2/smooth-scrollbar.js",
-    	false, //dependencies
-    	null, //version number
-    	true //load in footer
-    );
-        wp_enqueue_script(
-    	'googleMaps',
-    	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://maps.googleapis.com/maps/api/js?key=AIzaSyBSMwtm8I17Mu6z9abAReNvCGXbJNdZlRk",
     	false, //dependencies
     	null, //version number
     	true //load in footer

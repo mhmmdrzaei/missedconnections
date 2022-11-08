@@ -376,15 +376,15 @@ main {
 	 max-width: 750px;
 
 	.rightAlignZig {
-		width: 49%;
-		margin-left: 50%;
+		width: 65%;
+		margin-left: 35%;
 		margin-top: 50px;
 		p {
 			text-align: justify;	
 		}
 	}
 	.leftAlignZig {
-		width: 49%;
+		width: 65%;
 		margin-top: 50px;
 		p {
 			text-align: justify;	
@@ -732,17 +732,17 @@ main {
 	display: none !important;
 }
 .fullwidthImg {
-	margin: 20vh auto;
+	margin: 10vh auto;
 	// width: 90%;
 	max-width: 750px;
 	img {
-		margin: 0 auto;
+		margin: 0 auto 10px;
 		width: 100%;
 		// max-width: 700px;
 		text-align: center;
 	}
 	span {
-		padding: 5px 0;
+		padding: 10px 0;
 	}
 }
 .postid-65 {
@@ -754,7 +754,7 @@ main {
 
 .readingsContainer {
 	@extend .flex;
-	margin: 20vh 0;
+	margin: 10vh 0;
 	justify-content:space-between;
 	align-items: center;
 	h2 {
@@ -807,7 +807,7 @@ main {
 
 .contributorsContainer {
 	@extend .flex;
-	margin: 20vh 0;
+	margin: 10vh 0;
 	justify-content:space-between;
 	width: 100%;
 	align-items:top;
@@ -831,7 +831,7 @@ main {
 
 .taggedEventContainer {
 	@extend .flex;
-	margin: 20vh 0;
+	margin: 10vh 0;
 	justify-content:space-between;
 	align-items:center;
 	h2 {
@@ -867,7 +867,7 @@ main {
 	padding: 12px 0 0 12px;
 }
 .artistMap {
-	margin: 20vh auto;
+	margin: 10vh auto;
 }
 // get in touch
 .pageGetInTouch {
@@ -901,7 +901,7 @@ main {
 }
 //events page singler
 .eventContainer {
-	margin: 20vh auto;
+	margin: 10vh auto;
 	@extend .flex;
 	justify-content: space-between;
 	h1 {
@@ -1136,7 +1136,7 @@ main {
 
 }
 .artistMap,.textFullWidth,.fullwidthImg , .htmlvideoContainer{
-	margin: 20vh auto;
+	margin: 10vh auto;
 	display: block;
 }
 .textFullWidth {

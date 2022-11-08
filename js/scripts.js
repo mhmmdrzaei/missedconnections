@@ -408,24 +408,24 @@ function animateFrom(elem, direction) {
   // });
   elem.style.transform = "translate(" + x + "px, " + y + "px)";
   elem.style.opacity = "1";
-  gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
+  gsap.fromTo(elem, {x: x, y: y, autoAlpha: 1}, {
     duration: 2.25, 
     x: 0,
     y: 0, 
-    start: "top top", // when the top of the trigger hits the top of the viewport
-    end: "-=10",
+    start: "80vh", // when the top of the trigger hits the top of the viewport
+    end: "+=10",
     pin: true,   // pin the trigger element while active
     scrub: 1,
     autoAlpha: 1, 
     // ease: "expo", 
     overwrite: "auto",
-    ease: "power2",
+    ease: "power2", 
     stagger: 0.6
   });
 }
 
 function hide(elem) {
-  gsap.set(elem, {autoAlpha: 1});
+  gsap.set(elem, {autoAlpha: 0});
 }
 
 document.addEventListener("DOMContentLoaded", function() {

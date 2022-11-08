@@ -188,9 +188,9 @@
             <?php endif; ?> 
 
           <?php elseif( get_row_layout() == 'readings' ): ?> 
-            <a href="#readings" class="navLink">Pedagogical Readings</a>
+            <a href="#readings" class="navLink">Readings</a>
             <section class="readingsContainer" id="readings" aria-label="Pedagogical Readings container">
-              <h2 class="gs_reveal gs_reveal_fromLeft">Pedagogical Readings</h2>
+              <h2 class="gs_reveal gs_reveal_fromLeft">Readings</h2>
               <section class="readingsEachContainer gs_reveal">
             <?php if( have_rows('readings_repeater_container') ): ?>
                 <?php while( have_rows('readings_repeater_container') ): the_row(); ?>
@@ -263,7 +263,7 @@
             </section>
 
           <?php elseif( get_row_layout() == 'full_width_image' ): ?> 
-            <figure class="fullwidthImg ">
+            <figure class="fullwidthImg gs_reveal">
               <?php 
               $imagesFull = get_sub_field('full_width_image_selection');
               if( $imagesFull ): ?>
@@ -483,7 +483,7 @@
 
               <?php elseif( get_row_layout() == 'readings' ): ?> 
                 <section class="readingsContainer" id="readings" aria-label="Pedagogical Readings">
-                  <h2 class="gs_reveal gs_reveal_fromLeft">Pedagogical Readings</h2>
+                  <h2 class="gs_reveal gs_reveal_fromLeft">Readings</h2>
                   <section class="readingsEachContainer gs_reveal">
                 <?php if( have_rows('readings_repeater_container') ): ?>
                     <?php while( have_rows('readings_repeater_container') ): the_row(); ?>
