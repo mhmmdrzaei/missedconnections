@@ -63,16 +63,18 @@
                     <?php 
                     $image = get_sub_field('image_imgwLink');
                     if( !empty( $image ) ): ?>
-                      <a href="<?php the_sub_field('link_img',) ;?>" target="_blank">
+                     
                       <figure class="scene__figureCite" aria-label="image accompanying link">
+                         <a href="<?php the_sub_field('link_img',) ;?>" target="_blank">
                         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                      </a>
                       </figure>
                       <a href="<?php the_sub_field('link_img',) ;?>" target="_blank">
                     <?php endif; ?>
-
-                    <h2 class="postTitle scene__headerCite"><?php the_title(); ?></h2>
+                     
+                    <h2 class="postTitle scene__headerCite"><a href="<?php the_sub_field('link_img',) ;?>" target="_blank"><?php the_title(); ?></a></h2>
                     </section>
-                  </a>
+                  
                 
                  <?php endwhile; ?>
                <?php endif; ?>     
@@ -87,11 +89,12 @@
                     <?php 
                     $imagepdf = get_sub_field('pdf_cover_image');
                     if( !empty( $imagepdf ) ): ?>
-                      <a href="<?php the_sub_field('pdf_file');?>" target="_blank">
+                      
                       <figure class="scene__figureCite" aria-label="cover image for pdf file: <?php the_title(); ?> ">
-                        <img src="<?php echo esc_url($imagepdf['url']); ?>" alt="<?php echo esc_attr($imagepdf['alt']); ?>" />
+                        <a href="<?php the_sub_field('pdf_file');?>" target="_blank">
+                        <img src="<?php echo esc_url($imagepdf['url']); ?>" alt="<?php echo esc_attr($imagepdf['alt']); ?>" /></a>
                       </figure>
-                      </a>
+                      
 
                     <?php endif; ?>
                     <h2 class="postTitle scene__headerCite"> <a href="<?php the_sub_field('pdf_file');?>" target="_blank"><?php the_title(); ?> <i class="fa-solid fa-file-pdf"></i></a></h2>

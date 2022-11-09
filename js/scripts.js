@@ -209,11 +209,11 @@ $(window).scroll(function() {
   var x = $(window).width();
   if ((scrollBottom > 350) && (x > 700)) {
   	$(".languageChoiceEach").fadeIn(100);
-  	 $(".pageTitlePage h1").css('position', 'fixed');
+  	 // $(".pageTitlePage h1").css('position', 'fixed');
 
   } else if ((scrollBottom < 350) && (x > 700)) {
     $(".languageChoiceEach").fadeOut(100);
-    $(".pageTitlePage h1").css('position', 'relative');
+    // $(".pageTitlePage h1").css('position', 'relative');
 
 
   }
@@ -408,11 +408,11 @@ function animateFrom(elem, direction) {
   // });
   elem.style.transform = "translate(" + x + "px, " + y + "px)";
   elem.style.opacity = "1";
-  gsap.fromTo(elem, {x: x, y: y, autoAlpha: 1}, {
-    duration: 2.25, 
+  gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
+    duration: 1.6, 
     x: 0,
     y: 0, 
-    start: "80vh", // when the top of the trigger hits the top of the viewport
+    start: "50px", // when the top of the trigger hits the top of the viewport
     end: "+=10",
     pin: true,   // pin the trigger element while active
     scrub: 1,
@@ -425,7 +425,7 @@ function animateFrom(elem, direction) {
 }
 
 function hide(elem) {
-  gsap.set(elem, {autoAlpha: 0});
+  gsap.set(elem, {autoAlpha: 1});
 }
 
 document.addEventListener("DOMContentLoaded", function() {

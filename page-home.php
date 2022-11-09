@@ -12,14 +12,57 @@
    <?php endwhile; // end the loop?>
 
 
- 
+   <section class="newsHome" id="newsHome">
+      <?php $args = array( 'post_type' => 'events_announcements', 'order' => 'DCS', 'posts_per_page' => 1 );
+        query_posts( $args ); while ( have_posts() ) : the_post(); ?>
+        <section class="postEach  ">
+            <figure class=" gs_reveal gs_reveal_fromLeft">
+              <?php the_post_thumbnail('large');?>
+            </figure>
+            <section class="postInfoText gs_reveal gs_reveal_fromRight">
+              <a  class="updateTitle" href="<?php the_permalink(); ?>">
+              <?php 
+                  $startDate = get_field('event_date_start');
+                  $endDate = get_field('event_date_end');
+                  if( !empty( $endDate ) ): ?>
+                     <h3><?php the_field('event_date_start');?> - <?php the_field('event_date_end'); ?></h3>
+                  <?php elseif( !empty( $startDate ) ): ?>
+                   <h3><?php the_field('event_date_start');?></h3>
+                  <?php endif; ?>
+              <?php 
+                $eventTime = get_field('event_time');
+                if ( !empty($eventTime)): ?>
+                  <h3><?php the_field('event_time'); ?></h3>
+              <?php endif; ?>
+              <h2><?php the_title(); ?></h2></a>
+              
 
-   </section>
+              <section class="postExcerpt">
+                <?php 
+                  $project_desc = get_field( 'event_description' );
+                  if( !empty( $project_desc ) ):
+                      $trimmed_text = wp_trim_excerpt_modified( $project_desc, 150 );
+                      $last_space = strrpos( $trimmed_text, ' ' );
+                      $modified_trimmed_text = substr( $trimmed_text, 0, $last_space );
+                      echo $modified_trimmed_text . '... <br><a href="'. get_permalink() . '"><b>More Information <span class="meta-nav">&rarr;</span></b></a>';;
+                  endif; 
+
+
+                 ?>
+
+              </section>
+
+            </section>
+
+          </section>
+        </section>
+     <?php endwhile; ?>
+    <?php wp_reset_query(); ?> 
 
    <section class="artistsHome scenes" id="artists" aria-label="artist container">
     <section class="scenes__wrap">
       <div class="scenes__items">
-    <?php $args = array( 'post_type' => 'artists', 'order' => 'DCS', 'posts_per_page' => -1 );
+    <?php $args = array( 'post_type' => 'artists', 'order' => 'ASC','orderby'=> 'title','posts_per_page' => -1 );
       query_posts( $args ); while ( have_posts() ) : the_post(); ?>
         
           <article class="artistEach scene " aria-label="single artist container with an avatar image created for this project, artist name and a brief description of the project">

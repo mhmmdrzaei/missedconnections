@@ -10,7 +10,7 @@
       </a>
    </section>
    <?php endwhile; // end the loop?>
-<!--    <section class="newsHome" id="newsHome">
+   <section class="newsHome" id="newsHome">
       <?php $args = array( 'post_type' => 'events_announcements', 'order' => 'DCS', 'posts_per_page' => 5 );
         query_posts( $args ); while ( have_posts() ) : the_post(); ?>
         <section class="postEach  ">
@@ -56,7 +56,7 @@
         </section>
 
          <?php endwhile; ?>
-        <?php wp_reset_query(); ?>  -->
+        <?php wp_reset_query(); ?> 
 
 
  

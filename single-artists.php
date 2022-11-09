@@ -91,12 +91,12 @@
             <?php endif; ?> 
 
           <?php elseif( get_row_layout() == 'two_column_text' ): ?>
-            <section class="twoColumnText gs_reveal gs_reveal_fromLeft" >
+            <section class="twoColumnText" >
             <?php if( have_rows('column_details') ): ?>
                 <?php while( have_rows('column_details') ): the_row(); ?>
                 <?php $columnWidth = get_sub_field('column_widths');
                 if( $columnWidth == '20% / 80%' ) { ?>
-                  <section class="twoColumn">
+                  <section class="twoColumn ">
                     <div class="twenty">
                       <?php the_sub_field('left_column'); ?>
                     </div>
@@ -107,7 +107,7 @@
                 <?php } ?> 
 
                 <?php if( $columnWidth == '50 % / 50%' ) { ?>
-                  <section class="twoColumn twoColumnFifty">
+                  <section class="twoColumn twoColumnFifty gs_reveal gs_reveal_fromLeft">
                     <div class="fifty">
                       <?php the_sub_field('left_column'); ?>
 
@@ -127,12 +127,12 @@
             </section>
 
           <?php elseif( get_row_layout() == 'zig_zag_text' ): ?>
-            <section class="zigZagTexts gs_reveal" >
+            <section class="zigZagTexts" >
             <?php if( have_rows('zig_zag_fields_container') ): ?>
                 <?php while( have_rows('zig_zag_fields_container') ): the_row(); ?>
                 <?php $zigWidth = get_sub_field('left_align_or_right_align');
                 if( $zigWidth == 'Left Align' ) { ?>
-                  <section class="leftAlignZig ">
+                  <section class="leftAlignZig">
                       <?php the_sub_field('zig_zag_text'); ?>
                   </section>  
                 <?php } ?> 
