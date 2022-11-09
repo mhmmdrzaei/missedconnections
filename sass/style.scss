@@ -886,13 +886,14 @@ main {
 .singlePage{
 	@extend .flex;
 	justify-content: space-between;
-	// align-items: center;
+
+	align-items: center;
 	margin: 80px auto;
 	.pageTitlePage {
+		height: fit-content;
 		width: 25%;
 			h1 {
-		position: relative;
-		top: 48vh;
+
 		}
 	}
 
