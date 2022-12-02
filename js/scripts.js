@@ -1,6 +1,4 @@
 $(function(){
-console.log('fessda');  
-
 	if ($(window).width() > 775) {
 
 	$('ul.sub-menu li').each( function(){
@@ -12,12 +10,6 @@ console.log('fessda');
 	});
 
 	}
-
-
-    // var player = videojs('my-video', {
-    //   responsive: true
-    // });
-    //  _V_.ControlBar.prototype.options.components = {'playToggle':{}}
 
     $('#menu-wrapper').click(function() {
           $("#menu-header-menu").toggleClass('activeMenu',1000, "easeOutSine");
@@ -126,61 +118,7 @@ console.log('fessda');
 	});
 
 
-//gsap
-
-
-
-
-
-
-
-
-
-
-
-
-// 	//citations page
-
-
-
-
-// let sections = gsap.utils.toArray(".citationsPost"),
-//     currentSection = sections[0];
-
-// gsap.defaults({overwrite: 'auto', duration: 0.3});
-
-// // stretch out the body height according to however many sections there are. 
-// gsap.set("#pageCitations", {height: (sections.length * 80) + "%"});
-
-// // create a ScrollTrigger for each section
-// sections.forEach((section, i) => {
-//   ScrollTrigger.create({
-//     // use dynamic scroll positions based on the window height (offset by half to make it feel natural)
-//     start: () => (i - 0.5) * innerHeight,
-//     end: () => (i + 0.5) * innerHeight,
-//     // when a new section activates (from either direction), set the section accordinglyl.
-//     onToggle: self => self.isActive && setSection(section)
-//   });
-// });
-
-// function setSection(newSection) {
-//   if (newSection !== currentSection) {
-//     gsap.to(currentSection, {scale: 1, autoAlpha: 0})
-//     gsap.to(newSection, {scale: 1, autoAlpha: 1});
-//     currentSection = newSection;
-//   }
-// }
-
-// // handles the infinite part, wrapping around at either end....
-// ScrollTrigger.create({
-//   start: 1,
-//   end: () => ScrollTrigger.maxScroll('.pageCitations') - 1,
-//   onLeaveBack: self => self.scroll(ScrollTrigger.maxScroll('.pageCitations') - 2),
-//   onLeave: self => self.scroll(2)
-// }).scroll(2);
-
-
-//languages options
+//lang option
 
 $('.languageChoiceContent:nth-child(3)').addClass('visible');
 $('.lds-roller').hide();
@@ -195,13 +133,6 @@ $('.lds-roller').hide();
     $(this).next('.languageChoiceContent').addClass('visible');
 
   });
-
-//even odd home page artists
-
-// $('.artistLink:nth-child(odd) figure').addClass('gs_reveal_fromRight');
-// $('.artistLink:nth-child(odd) .openingDesc').addClass('gs_reveal_fromBottom');
-// $('.artistLink:nth-child(even) figure').addClass('gs_reveal_fromLeft');
-// $('.artistLink:nth-child(even) .openingDesc').addClass('gs_reveal_fromBottom');
 
 
 $(window).scroll(function() {
@@ -245,134 +176,15 @@ $(window).scroll(function() {
 });
 
 
-//google maps
-(function( $ ) {
-
-/**
- * initMap
- *
- * Renders a Google Map onto the selected jQuery element
- *
- * @date    22/10/19
- * @since   5.8.6
- *
- * @param   jQuery $el The jQuery element.
- * @return  object The map instance.
- */
-function initMap( $el ) {
-
-    // Find marker elements within map.
-    var $markers = $el.find('.marker');
-
-    // Create gerenic map.
-    var mapArgs = {
-        zoom        : $el.data('zoom') || 16,
-        mapTypeId   : google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map( $el[0], mapArgs );
-
-    // Add markers.
-    map.markers = [];
-    $markers.each(function(){
-        initMarker( $(this), map );
-    });
-
-    // Center map based on markers.
-    centerMap( map );
-
-    // Return map instance.
-    return map;
-}
-
-/**
- * initMarker
- *
- * Creates a marker for the given jQuery element and map.
- *
- * @date    22/10/19
- * @since   5.8.6
- *
- * @param   jQuery $el The jQuery element.
- * @param   object The map instance.
- * @return  object The marker instance.
- */
-function initMarker( $marker, map ) {
-
-    // Get position from marker.
-    var lat = $marker.data('lat');
-    var lng = $marker.data('lng');
-    var latLng = {
-        lat: parseFloat( lat ),
-        lng: parseFloat( lng )
-    };
-
-    // Create marker instance.
-    var marker = new google.maps.Marker({
-        position : latLng,
-        map: map
-    });
-
-    // Append to reference for later use.
-    map.markers.push( marker );
-
-    // If marker contains HTML, add it to an infoWindow.
-    if( $marker.html() ){
-
-        // Create info window.
-        var infowindow = new google.maps.InfoWindow({
-            content: $marker.html()
-        });
-
-        // Show info window when marker is clicked.
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open( map, marker );
-        });
-    }
-}
-
-/**
- * centerMap
- *
- * Centers the map showing all markers in view.
- *
- * @date    22/10/19
- * @since   5.8.6
- *
- * @param   object The map instance.
- * @return  void
- */
-function centerMap( map ) {
-
-    // Create map boundaries from all map markers.
-    var bounds = new google.maps.LatLngBounds();
-    map.markers.forEach(function( marker ){
-        bounds.extend({
-            lat: marker.position.lat(),
-            lng: marker.position.lng()
-        });
-    });
-
-    // Case: Single marker.
-    if( map.markers.length == 1 ){
-        map.setCenter( bounds.getCenter() );
-
-    // Case: Multiple markers.
-    } else{
-        map.fitBounds( bounds );
-    }
-}
-
-// Render maps on page load.
-$(document).ready(function(){
-    $('.acf-map').each(function(){
-        var map = initMap( $(this) );
-    });
-});
-
-})(jQuery);
-
 // gsap
 
+gsap.config({
+  autoSleep: 60,
+  force3D: false,
+  nullTargetWarn: false,
+  trialWarn: false,
+  units: {left: "%", top: "%", rotation: "rad"}
+});
 function animateFrom(elem, direction) {
 	  gsap.registerPlugin(ScrollTrigger);
   direction = direction || 1;
@@ -386,38 +198,14 @@ function animateFrom(elem, direction) {
     y = 0;
 
   } 
-  // else if (elem.classList.contains("gs_reveal_fromBottom")) {
-  //   // x = 0;
-  //   // y = 200;
 
-  // }
-  // gsap.set(".gs_reveal_fromBottom", { yPercent: 0});
-
-  // gsap.to(".gs_reveal_fromBottom", {
-  //   // yPercent: -25,
-  //   ease: "none",
-  //    y: 0, 
-  //    opacity: 1,
-  //   scrollTrigger: {
-  //     trigger: ".artistLink",
-  //     start: "top center",
-  //     end: "top 50px",
-  //     // pin: true,
-  //     scrub: 3
-  //   }, 
-  // });
   elem.style.transform = "translate(" + x + "px, " + y + "px)";
   elem.style.opacity = "1";
   gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
     duration: 1.6, 
     x: 0,
     y: 0, 
-    start: "50px", // when the top of the trigger hits the top of the viewport
-    end: "+=10",
-    pin: true,   // pin the trigger element while active
-    scrub: 1,
     autoAlpha: 1, 
-    // ease: "expo", 
     overwrite: "auto",
     ease: "power2", 
     stagger: 0.6
@@ -447,11 +235,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-
-
 // Scroll Scenes 
-if ($(window).width() > 775) {
+if (($(window).width() > 775) && ($('body').hasClass('home') || $('body').hasClass('page-id-46'))) {
 const scenes = gsap.utils.toArray('.scene');
 
 // maybe use dymanic height for pin/scroll ends?
@@ -546,42 +331,9 @@ scenes.forEach(function(elem, i) {
       }, i + 0.75
     )
   }
-  
-  // Vid start / pause logic
-  pinTl.add(() => pinTl.scrollTrigger.direction > 0 ? stopVideo(elem, i) : startVideo(elem, i), i + 1.25)
-
 
 });	
 
-// add a tiny amount of empty space at the end of the timeline so that the playhead trips the final callback in both directions
-pinTl.to({}, {duration: 0.001});
-
-/** 
- * Start Video 
- * @param {HTML ELement} - element containing video
- */
-function startVideo(vidScene, i) { 
-  const vid = vidScene.querySelector('video');
-  console.log("start", i);
-  if (vid) {
-    // console.log("Start Vid", vid)
-    vid.play()
-  }
-}
-
-
-/** 
- * Stop Video 
- * @param {HTML ELement} - element containing video
- */
-function stopVideo(vidScene, i) {
-  const vid = vidScene.querySelector('video');
-  console.log("stop", i);
-  if (vid) {
-    // console.log("end vid", vid)
-    vid.pause()
-  }
-}
 }
 
 gsap.to(".svg1", {
