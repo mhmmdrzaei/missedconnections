@@ -15,7 +15,7 @@
       <section class="openingDesc gs_reveal">
         <h1><?php the_title(); ?></h1>
         <section class="openingDesciption">
-          <?php the_field('page_description'); ?>
+          <?php echo get_field('page_description'); ?>
         </section>
       </section>
     </section>
@@ -34,7 +34,7 @@
                       <?php endif; ?>
                     </figure>
                     <section class="single_large_desc gs_reveal" aria-label="accompanying image title">
-                      <?php the_sub_field('image_text_information_image_with_text'); ?>
+                      <?php echo get_sub_field('image_text_information_image_with_text'); ?>
                     </section>
                   </section>
                 <?php endwhile; ?>
@@ -98,10 +98,10 @@
                 if( $columnWidth == '20% / 80%' ) { ?>
                   <section class="twoColumn ">
                     <div class="twenty">
-                      <?php the_sub_field('left_column'); ?>
+                      <?php echo get_sub_field('left_column'); ?>
                     </div>
                     <div class="eighty">
-                      <?php the_sub_field('right_column'); ?>
+                      <?php echo get_sub_field('right_column'); ?>
                     </div>
                   </section>  
                 <?php } ?> 
@@ -109,15 +109,15 @@
                 <?php if( $columnWidth == '50 % / 50%' ) { ?>
                   <section class="twoColumn twoColumnFifty gs_reveal gs_reveal_fromLeft">
                     <div class="fifty">
-                      <?php the_sub_field('left_column'); ?>
+                      <?php echo get_sub_field('left_column'); ?>
 
                     </div>
                     <div class="fifty">
-                      <?php the_sub_field('right_column'); ?>
+                      <?php echo get_sub_field('right_column'); ?>
                        
                     </div>
-                    <strong class="leftcolName"><?php the_sub_field('left_column_name'); ?></strong>
-                      <strong class="rightcolName"><?php the_sub_field('right_column_name'); ?></strong>
+                    <strong class="leftcolName"><?php echo get_sub_field('left_column_name'); ?></strong>
+                      <strong class="rightcolName"><?php echo get_sub_field('right_column_name'); ?></strong>
                   </section>  
                 <?php } ?>  
             
@@ -259,7 +259,7 @@
 
           <?php elseif( get_row_layout() == 'full_width_text' ): ?> 
             <section class="textFullWidth gs_reveal" aria-label="long form text">
-              <?php the_sub_field('full_width_text_content'); ?>
+              <?php echo get_sub_field('full_width_text_content'); ?>
             </section>
 
           <?php elseif( get_row_layout() == 'full_width_image' ): ?> 
@@ -330,9 +330,9 @@
                 <?php while( have_rows('contributors_repeater_container') ): the_row(); ?>
                       
                         <section class="contributorInformation gs_reveal gs_reveal_fromRight">
-                          <h3><?php the_sub_field('contributor_name') ?></h3>
+                          <h3><?php echo get_sub_field('contributor_name') ?></h3>
                           <section class="contributorBio">
-                            <?php the_sub_field('contributor_bio') ?>
+                            <?php echo get_sub_field('contributor_bio') ?>
                           </section>
                         
                       </section>
@@ -367,7 +367,7 @@
           <section class="openingDesc gs_reveal">
             <h1><?php the_title(); ?></h1>
             <section class="openingDesciption">
-              <?php the_sub_field('page_description_multi'); ?>
+              <?php echo get_sub_field('page_description_multi'); ?>
             </section>
           </section>
         </section>
@@ -388,7 +388,7 @@
                           <?php endif; ?>
                         </figure>
                         <section class="single_large_desc gs_reveal gs_reveal_fromRight">
-                          <?php the_sub_field('image_text_information_image_with_text'); ?>
+                          <?php echo get_sub_field('image_text_information_image_with_text'); ?>
                         </section>
                       </section>
                     <?php endwhile; ?>
@@ -556,7 +556,7 @@
 
               <?php elseif( get_row_layout() == 'full_width_text' ): ?> 
                 <section class="textFullWidth gs_reveal">
-                  <?php the_sub_field('full_width_text_content'); ?>
+                  <?php echo get_sub_field('full_width_text_content'); ?>
                 </section>
 
               <?php elseif( get_row_layout() == 'full_width_image' ): ?> 
@@ -581,9 +581,9 @@
                   <?php if( have_rows('contributors_repeater_container') ): ?>
                       <?php while( have_rows('contributors_repeater_container') ): the_row(); ?>
                               <section class="contributorInformation gs_reveal gs_reveal_fromRight">
-                                <h3><?php the_sub_field('contributor_name') ?></h3>
+                                <h3><?php echo get_sub_field('contributor_name') ?></h3>
                                 <section class="contributorBio">
-                                  <?php the_sub_field('contributor_bio') ?>
+                                  <?php echo get_sub_field('contributor_bio') ?>
                                 </section>
                               </section>
                            

@@ -1,7 +1,7 @@
 {
-  "name": "moahmmad",
+  "name": "theme-hackeryou",
   "version": "1.0.0",
-  "description": "A starter mohammad theme",
+  "description": "A starter HackerYou theme",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,9 +23,9 @@
     "gulp-load-plugins": "^2.0.8",
     "gulp-notify": "^4.0.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
+    "gulp-sass": "^5.1.0",
     "node-sass": "^7.0.3",
     "npm-force-resolutions": "0.0.10"
   },
@@ -33,7 +33,6 @@
     "graceful-fs": "^4.2.10"
   },
   "dependencies": {
-    "babel-cli": "^6.26.0",
     "cjs-loader": "^0.1.0",
     "clean": "^4.0.2",
     "del": "^6.0.0",

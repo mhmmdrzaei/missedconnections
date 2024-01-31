@@ -1,4 +1,22 @@
 $(function(){
+
+  $('.current-artists').on('click', function(e) {
+    e.preventDefault(); // Prevent the default link behavior
+
+    // Check if the current page is the home page
+    if (window.location.pathname === '/') {
+        // If on the home page, scroll to the target element
+        var target = $('#artists');
+        if (target.length) {
+            $('html, body').animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
+    } else {
+        // If on another page, redirect to the home page
+        window.location.href = '/#artists';
+    }
+});
 	if ($(window).width() > 775) {
 
 	$('ul.sub-menu li').each( function(){
@@ -236,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // Scroll Scenes 
-if (($(window).width() > 775) && ($('body').hasClass('home') || $('body').hasClass('page-id-46'))) {
+  if (($(window).width() > 775) && ($('body').hasClass('home') || $('body').hasClass('page-id-46') || $('body').hasClass('page-id-525'))) {
 const scenes = gsap.utils.toArray('.scene');
 
 // maybe use dymanic height for pin/scroll ends?

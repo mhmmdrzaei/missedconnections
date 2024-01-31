@@ -62,7 +62,7 @@
    <section class="artistsHome scenes" id="artists" aria-label="artist container">
     <section class="scenes__wrap">
       <div class="scenes__items">
-    <?php $args = array( 'post_type' => 'artists', 'order' => 'ASC','orderby'=> 'title','posts_per_page' => -1 );
+    <?php $args = array( 'post_type' => 'artists', 'order' => 'ASC','orderby'=> 'title','posts_per_page' => -1, 'tag' => 'current', );
       query_posts( $args ); while ( have_posts() ) : the_post(); ?>
         
           <article class="artistEach scene " aria-label="single artist container with an avatar image created for this project, artist name and a brief description of the project">
@@ -71,7 +71,7 @@
               <a  class="artistLink" href="<?php the_permalink(); ?>">
               <h1><?php the_title(); ?></h1>
               <section class="openingDesciption ">
-                <?php the_field('page_description'); ?>
+                <?php echo get_field('page_description'); ?>
               </section>
             </a>
             </section>
@@ -83,7 +83,7 @@
                   <?php if( have_rows('multi_language_fields') ): ?>
                   <?php while( have_rows('multi_language_fields') ): the_row(); ?>
                       <section class="openingDesciption">
-                        <?php the_sub_field('page_description_multi'); ?>
+                        <?php echo get_sub_field('page_description_multi'); ?>
                       </section>
                     <?php endwhile; ?>
                 <?php endif; ?> 

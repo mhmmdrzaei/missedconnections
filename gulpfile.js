@@ -3,7 +3,6 @@ var less = require('gulp-less');
 var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var pipeline = require('readable-stream').pipeline;
 var rename = require('gulp-rename');
 var cleanCSS = require('gulp-clean-css');
 var del = require('del');
@@ -75,23 +74,13 @@ function scripts() {
     }))
     .pipe(concat('main.min.js'))
     .pipe(uglify())
-    // .pipe(sourcemaps.write('.'))
     // .pipe(uglify({mangle: false}))
-      .pipe(gulp.dest('dist'))
-     // .on('change', browserSync.reload)
+      .pipe(gulp.dest('./js'))
     .pipe(reload({stream:true}));
 
      
 
 }
-
-// gulp.task('compress', function () {
-//   return pipeline(
-//         gulp.src('lib/*.js'),
-//         uglify(),
-//         gulp.dest('dist')
-//   );
-// });
     // gulp.scripts('watch:es6', () => {
     //   return gulp.watch('./js/scripts.js', gulp.series('es6:react', function (done) {
     //     browserSync.reload();
@@ -109,7 +98,6 @@ function images() {
 function watch() {
   gulp.watch('sass/**/*.scss', styles);
   gulp.watch('./js/**/*.js', scripts);
-  
   // gulp.watch('./sass/**/*.scss', ['sass']);
   // gulp.watch('./js/**/*.js', ['scripts']);
   // gulp.watch(settings.themeLocation + './**/*.php', reload);
