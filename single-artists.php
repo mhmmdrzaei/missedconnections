@@ -133,13 +133,13 @@
                 <?php $zigWidth = get_sub_field('left_align_or_right_align');
                 if( $zigWidth == 'Left Align' ) { ?>
                   <section class="leftAlignZig">
-                      <?php the_sub_field('zig_zag_text'); ?>
+                      <?php echo get_sub_field('zig_zag_text'); ?>
                   </section>  
                 <?php } ?> 
                 <?php if( $zigWidth == 'Right Align' ) { ?>
                   <section class="rightAlignZig">
               
-                      <?php the_sub_field('zig_zag_text'); ?>
+                      <?php echo get_sub_field('zig_zag_text'); ?>
                   </section>  
                 <?php } ?>  
             
@@ -155,7 +155,7 @@
                 
                     <section class="videoContainerEach">
                       <section class="videoInformation gs_reveal gs_reveal_fromLeft" aria-label="information about the video">
-                        <h2><?php the_sub_field('video_title') ?></h2>
+                        <h2><?php echo get_sub_field('video_title') ?></h2>
                         <p><?php the_sub_field('video_description') ?></p>
                       </section>
                       <section class="videoOuter gs_reveal gs_reveal_fromRight">
@@ -175,7 +175,7 @@
                   <section class="embeddedContainer" id="embedContent">
                       <section class="videoOuter gs_reveal gs_reveal_fromLeft">
                         <section class="videoContainer">
-                        <?php the_sub_field('embedded_content_link') ?>
+                        <?php echo get_sub_field('embedded_content_link') ?>
                       </section>
                       </section>
                       <section class="embeddedInformation gs_reveal" aria-label="information about the embedded content">
@@ -451,7 +451,7 @@
                       
                         <section class="videoContainerEach">
                           <section class="videoInformation gs_reveal gs_reveal_fromLeft">
-                            <h2><?php the_sub_field('video_title') ?></h2>
+                            <h2><?php echo get_sub_field('video_title') ?></h2>
                             <p><?php the_sub_field('video_description') ?></p>
                           </section>
                           <section class="videoOuter gs_reveal">
@@ -470,7 +470,7 @@
                       <section class="embeddedContainer" id="embedContent">
                           <section class="videoOuter gs_reveal gs_reveal_fromLeft">
                           <section class="videoContainer">
-                            <?php the_sub_field('embedded_content_link') ?>
+                            <?php echo get_sub_field('embedded_content_link') ?>
                           </section>
                         </section>
                         <section class="embeddedInformation gs_reveal gs_reveal_fromRight">

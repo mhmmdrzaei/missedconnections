@@ -23,7 +23,7 @@
       </section>
     <?php }; ?>
     <section class="evenDescription" aria-label="description details of the event">
-      <?php the_field('event_description'); ?>
+      <?php echo get_field('event_description'); ?>
     </section>
 
     <?php 
